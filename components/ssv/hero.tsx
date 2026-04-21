@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Play, ArrowDown } from 'lucide-react'
+import Link from 'next/link'
 import { useRef, useState, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -98,7 +99,7 @@ export function Hero() {
         >
           نحن لسنا مجرد شركة
           <br />
-          <span className="text-[#55D9DE]">تسويق...</span>
+          <span className="text-[#0BAFB4]">تسويق...</span>
         </motion.h1>
 
         <motion.p
@@ -112,14 +113,14 @@ export function Hero() {
           variants={itemVariants}
           className="flex flex-col sm:flex-row items-center gap-4"
         >
-          <motion.a
-            href="#services"
+          <Link
+            href="/contact"
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.98 }}
             className="btn-accent px-10 py-4 rounded-lg text-base font-bold shadow-lg"
           >
-            اكتشف خدماتنا
-          </motion.a>
+            إحجز استشارة مجانية
+          </Link>
 
           <motion.button
             whileHover={{ scale: 1.05 }}

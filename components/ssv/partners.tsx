@@ -4,13 +4,13 @@ import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
 
-const partners = [
-  { name: 'Partner 1', color: '#0F172A' },
-  { name: 'Partner 2', color: '#334155' },
-  { name: 'Partner 3', color: '#475569' },
-  { name: 'Partner 4', color: '#64748B' },
-  { name: 'Partner 5', color: '#0F172A' },
-  { name: 'Partner 6', color: '#334155' },
+const partnerLogos = [
+  'bnm.png', 'bvdfgh.png', 'cvbnm.png', 'cvgy.png', 'dfgHJ.png',
+  'dfgh.png', 'dfghertyu.png', 'ertyu.png', 'ertyui.png', 'fg.png',
+  'fghjkl.png', 'iuytrew.png', 'jhgf.png', 'kjhgnbv.png', 'lkjhg.png',
+  'nbv.png', 'oiouy.png', 'oiuytdfghj.png', 'qwert.png', 'qwertasdf.png',
+  'rtyu.png', 'rtyui.png', 'sxcvb.png', 'tyui.png', 'tyuio.png',
+  'uiop.png', 'wert.png', 'werty.png', 'xcvbnm.png', 'yuio.png'
 ]
 
 export function Partners() {
@@ -18,36 +18,34 @@ export function Partners() {
   const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
-    <section ref={ref} className="bg-[#0F172A] py-20 border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section ref={ref} className="bg-[#0F172A] py-16 border-b border-white/5 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center"
         >
-          <span className="text-[#94A3B8] text-sm font-medium tracking-wider">
+          <span className="text-[#0BAFB4] text-sm font-bold tracking-wider uppercase">
             شركاؤنا في النجاح
           </span>
         </motion.div>
+      </div>
 
-        {/* Swiss Grid Logo Layout with Dark Surfaces */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {partners.map((partner, index) => (
-            <motion.div
-              key={partner.name}
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#1E293B] p-8 flex items-center justify-center group cursor-pointer hover:bg-[#334155] rounded-xl transition-all duration-300 shadow-lg shadow-black/20"
+      {/* Infinite Logo Marquee */}
+      <div className="relative flex overflow-hidden">
+        <div className="flex animate-infinite-scroll whitespace-nowrap py-4">
+          {[...partnerLogos, ...partnerLogos].map((logo, index) => (
+            <div
+              key={`${logo}-${index}`}
+              className="flex items-center justify-center min-w-[150px] md:min-w-[200px] px-8 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
             >
-              <div
-                className="text-2xl font-black tracking-tighter opacity-10 group-hover:opacity-100 group-hover:text-[#55D9DE] transition-all duration-300"
-                style={{ color: '#F8FAFC' }}
-              >
-                LOGO
-              </div>
-            </motion.div>
+              <img
+                src={`/partners/${logo}`}
+                alt="Partner Logo"
+                className="h-12 md:h-16 w-auto object-contain"
+              />
+            </div>
           ))}
         </div>
       </div>

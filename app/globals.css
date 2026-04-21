@@ -5,16 +5,16 @@
 :root {
   /* SSV Agency - Swiss Precision Hybrid Design System */
 
+  /* Primary Palette */
+  --primary: #1F3C64;
+  --secondary: #E7F7F8;
+  --accent: #0BAFB4;
+
   /* Dark Mode (unified) */
   --dark-bg: #0F172A;
   --dark-surface: #1E293B;
   --dark-text: #F8FAFC;
   --dark-muted: #94A3B8;
-
-  /* Accent */
-  --accent: #55D9DE;
-  --accent-dark: #0BAFB4;
-  --accent-light: #76F5FA;
 
   /* Radius */
   --radius: 0.5rem;
@@ -32,8 +32,8 @@
   }
 
   ::selection {
-    background-color: #55D9DE;
-    color: #0F172A;
+    background-color: #0BAFB4;
+    color: #E7F7F8;
   }
 }
 
@@ -82,13 +82,14 @@
 
 /* Accent Button */
 .btn-accent {
-  background-color: #55D9DE;
-  color: #0F172A;
+  background-color: #0BAFB4;
+  color: #E7F7F8;
   transition: all 0.3s ease;
 }
 
 .btn-accent:hover {
-  background-color: #76F5FA;
+  background-color: #1F3C64;
+  color: #E7F7F8;
   transform: translateY(-2px);
 }
 
@@ -103,7 +104,7 @@
 .floating-label-group textarea:not(:placeholder-shown)~label {
   top: 0.5rem;
   font-size: 0.75rem;
-  color: #55D9DE;
+  color: #0BAFB4;
 }
 
 .floating-label-group label {
@@ -161,6 +162,6 @@
 
 /* Form Input Focus */
 .input-swiss:focus {
-  border-color: #55D9DE;
-  box-shadow: 0 0 0 3px rgba(85, 217, 222, 0.1);
+  border-color: #0BAFB4;
+  box-shadow: 0 0 0 3px rgba(11, 175, 180, 0.1);
 }

@@ -44,8 +44,8 @@ export function Header() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-            ? 'glass-dark border-b border-white/5 shadow-2xl'
-            : 'bg-transparent'
+          ? 'glass-dark border-b border-white/5 shadow-2xl'
+          : 'bg-transparent'
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -54,7 +54,7 @@ export function Header() {
             <Link href="/" className="flex items-center gap-3">
               <div className="text-2xl font-black tracking-tight text-[#F8FAFC]">
                 SSV
-                <span className="text-[#55D9DE]">.</span>
+                <span className="text-[#0BAFB4]">.</span>
               </div>
               <span className="text-sm font-medium text-[#94A3B8]">
                 agency
@@ -68,7 +68,7 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-sm font-medium transition-colors duration-300 hover:text-[#55D9DE] text-[#F8FAFC]"
+                  className="text-sm font-medium transition-colors duration-300 hover:text-[#0BAFB4] text-[#F8FAFC]"
                 >
                   {link.label}
                 </a>
@@ -77,14 +77,13 @@ export function Header() {
 
             {/* CTA Button */}
             <div className="hidden lg:flex items-center gap-4">
-              <a
-                href="#contact"
-                onClick={(e) => handleNavClick(e, '#contact')}
-                className="btn-accent px-6 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 text-[#0F172A]"
+              <Link
+                href="/contact"
+                className="btn-accent px-6 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 text-[#E7F7F8]"
               >
-                <Phone className="w-4 h-4 text-[#0F172A]" />
-                احجز موعدك
-              </a>
+                <Phone className="w-4 h-4" />
+                إحجز استشارة مجانية
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -127,23 +126,20 @@ export function Header() {
                         handleNavClick(e, link.href)
                         setIsMobileMenuOpen(false)
                       }}
-                      className="text-lg font-medium text-[#F8FAFC] hover:text-[#55D9DE] transition-colors py-2 border-b border-white/5"
+                      className="text-lg font-medium text-[#F8FAFC] hover:text-[#0BAFB4] transition-colors py-2 border-b border-white/5"
                     >
                       {link.label}
                     </a>
                   ))}
                 </nav>
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    handleNavClick(e, '#contact')
-                    setIsMobileMenuOpen(false)
-                  }}
-                  className="btn-accent w-full mt-8 px-6 py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2 text-[#0F172A]"
+                <Link
+                  href="/contact"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="btn-accent w-full mt-8 px-6 py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2 text-[#E7F7F8]"
                 >
-                  <Phone className="w-4 h-4 text-[#0F172A]" />
-                  احجز موعدك
-                </a>
+                  <Phone className="w-4 h-4" />
+                  إحجز استشارة مجانية
+                </Link>
               </div>
             </motion.div>
           </motion.div>

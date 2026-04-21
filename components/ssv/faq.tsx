@@ -38,7 +38,7 @@ export function FAQ() {
           transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
           className="text-center mb-12"
         >
-          <span className="inline-block text-[#55D9DE] text-sm font-bold tracking-wider mb-4">
+          <span className="inline-block text-[#0BAFB4] text-sm font-bold tracking-wider mb-4">
             الأسئلة الشائعة
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#F8FAFC]">
@@ -68,11 +68,11 @@ export function FAQ() {
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="w-full p-6 flex justify-between items-center gap-4 text-right hover:bg-white/5 transition-colors"
                 >
-                  <h4 className={`font-bold text-lg transition-colors duration-300 ${isOpen ? 'text-[#55D9DE]' : 'text-[#F8FAFC]'
+                  <h4 className={`font-bold text-lg transition-colors duration-300 ${isOpen ? 'text-[#0BAFB4]' : 'text-[#F8FAFC]'
                     }`}>
                     {faq.question}
                   </h4>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${isOpen ? 'bg-[#55D9DE] text-[#0F172A]' : 'bg-[#0F172A] text-[#94A3B8]'
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${isOpen ? 'bg-[#0BAFB4] text-[#E7F7F8]' : 'bg-[#0F172A] text-[#94A3B8]'
                     }`}>
                     {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </div>

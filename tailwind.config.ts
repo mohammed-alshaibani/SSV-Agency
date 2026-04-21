@@ -15,10 +15,15 @@ const config: Config = {
                     text: "#F8FAFC",
                     muted: "#94A3B8",
                 },
+                brand: {
+                    primary: "#1F3C64",
+                    secondary: "#E7F7F8",
+                    accent: "#0BAFB4",
+                },
                 accent: {
-                    DEFAULT: "#55D9DE",
-                    dark: "#0BAFB4",
-                    light: "#76F5FA",
+                    DEFAULT: "#0BAFB4",
+                    dark: "#1F3C64",
+                    light: "#E7F7F8",
                 },
             },
             fontFamily: {

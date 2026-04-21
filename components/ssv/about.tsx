@@ -42,7 +42,7 @@ export function About() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
           >
-            <span className="inline-block text-[#55D9DE] text-sm font-bold tracking-wider mb-4">
+            <span className="inline-block text-[#0BAFB4] text-sm font-bold tracking-wider mb-4">
               من نحن
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#F8FAFC] leading-tight mb-6 text-balance">
@@ -75,7 +75,7 @@ export function About() {
                 className="bg-[#1E293B] p-6 lg:p-8 rounded-xl shadow-xl shadow-black/20"
               >
                 <div className="w-12 h-12 rounded-lg bg-[#0F172A] flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-[#55D9DE]" />
+                  <feature.icon className="w-6 h-6 text-[#0BAFB4]" />
                 </div>
                 <h3 className="text-lg font-bold text-[#F8FAFC] mb-2">{feature.title}</h3>
                 <p className="text-sm text-[#94A3B8] leading-relaxed">{feature.description}</p>

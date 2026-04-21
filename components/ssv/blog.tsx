@@ -44,7 +44,7 @@ export function Blog() {
           className="flex justify-between items-end mb-12"
         >
           <div>
-            <span className="inline-block text-[#55D9DE] text-sm font-bold tracking-wider mb-4">
+            <span className="inline-block text-[#0BAFB4] text-sm font-bold tracking-wider mb-4">
               المدونة
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#F8FAFC]">
@@ -53,7 +53,7 @@ export function Blog() {
           </div>
           <a
             href="#"
-            className="hidden md:flex items-center gap-2 text-[#F8FAFC] font-medium hover:text-[#55D9DE] transition-colors"
+            className="hidden md:flex items-center gap-2 text-[#F8FAFC] font-medium hover:text-[#0BAFB4] transition-colors"
           >
             جميع المقالات
             <ArrowUpLeft className="w-4 h-4" />
@@ -86,7 +86,7 @@ export function Blog() {
 
               <div className="p-6 lg:p-8">
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="text-[#55D9DE] text-xs font-bold tracking-wider">
+                  <span className="text-[#0BAFB4] text-xs font-bold tracking-wider">
                     {article.category}
                   </span>
                   <span className="flex items-center gap-1 text-[#94A3B8] text-xs">
@@ -95,7 +95,7 @@ export function Blog() {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#F8FAFC] mb-3 group-hover:text-[#55D9DE] transition-colors duration-300">
+                <h3 className="text-xl font-bold text-[#F8FAFC] mb-3 group-hover:text-[#0BAFB4] transition-colors duration-300">
                   {article.title}
                 </h3>
 
@@ -110,7 +110,7 @@ export function Blog() {
         {/* Mobile "View All" Link */}
         <a
           href="#"
-          className="md:hidden flex items-center justify-center gap-2 text-[#F8FAFC] font-medium mt-8 hover:text-[#55D9DE] transition-colors"
+          className="md:hidden flex items-center justify-center gap-2 text-[#F8FAFC] font-medium mt-8 hover:text-[#0BAFB4] transition-colors"
         >
           جميع المقالات
           <ArrowUpLeft className="w-4 h-4" />

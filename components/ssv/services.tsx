@@ -4,37 +4,42 @@ import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { Video, Layers, Camera, Megaphone, PenTool, BarChart3 } from 'lucide-react'
 
-const services = [
+const servicePillars = [
   {
-    icon: Video,
-    title: 'الإنتاج المرئي',
-    description: 'إنتاج سينمائي احترافي يتجاوز التوقعات، من التصور الأولي وحتى اللمسات الأخيرة.',
-  },
-  {
-    icon: Layers,
-    title: 'موشن جرافيك و 3D',
-    description: 'تحويل الأفكار المعقدة إلى حركات بصرية مبهرة وقصص تروى عبر التحريك.',
-  },
-  {
-    icon: Camera,
-    title: 'تصوير استوديو وإيفنتات',
-    description: 'توثيق اللحظات بأسلوب عصري وتغطية احترافية لأهم الفعاليات التجارية.',
-  },
-  {
-    icon: Megaphone,
-    title: 'التسويق الرقمي',
-    description: 'استراتيجيات تسويقية متكاملة تضمن وصولك لجمهورك المستهدف بفعالية.',
-  },
-  {
-    icon: PenTool,
-    title: 'الهوية البصرية',
-    description: 'تصميم هويات بصرية متميزة تعكس قيم علامتك التجارية وتميزها.',
-  },
-  {
+    id: 'strategy',
     icon: BarChart3,
-    title: 'تحليل البيانات',
-    description: 'تحليل شامل للأداء والبيانات لاتخاذ قرارات مبنية على أرقام حقيقية.',
+    title: 'الاستراتيجية (Strategy)',
+    description: 'بناء خارطة طريق واضحة لنمو علامتك التجارية.',
+    details: [
+      'تحليل السوق',
+      'تحديد الجمهور',
+      'بناء خطة تسويقية واضحة'
+    ]
   },
+  {
+    id: 'support',
+    icon: Layers,
+    title: 'التنفيذ (Support)',
+    description: 'تحويل الخطط إلى واقع ملموس عبر فريق إبداعي.',
+    details: [
+      'إدارة السوشيال ميديا',
+      'تصميم الهوية والمحتوى',
+      'الحملات الإعلانية',
+      'المواقع والمتاجر'
+    ]
+  },
+  {
+    id: 'value',
+    icon: PenTool,
+    title: 'القياس والتطوير (Value)',
+    description: 'تحسين مستمر لضمان أعلى عائد على الاستثمار.',
+    details: [
+      'تحليل الأداء',
+      'تقارير دورية',
+      'تحسين مستمر',
+      'زيادة العائد على الاستثمار'
+    ]
+  }
 ]
 
 export function Services() {
@@ -49,24 +54,24 @@ export function Services() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <span className="inline-block text-[#55D9DE] text-sm font-bold tracking-wider mb-4">
-            خدماتنا
+          <span className="inline-block text-[#0BAFB4] text-sm font-bold tracking-wider mb-4 uppercase">
+            خدمات الشركة
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#F8FAFC] mb-6">
-            حلول متكاملة لنجاحك
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#F8FAFC] mb-8">
+            3 محاور رئيسية لنمو مبيعاتك
           </h2>
-          <p className="text-[#94A3B8] text-lg max-w-2xl mx-auto">
-            نقدم مجموعة شاملة من الخدمات المصممة لتحقيق أهدافك التسويقية
+          <p className="text-[#94A3B8] text-xl max-w-3xl mx-auto leading-relaxed">
+            نحن لا نقدم مجرد خدمات، نحن نصمم رحلة شاملة تبدأ بالاستراتيجية وتنتهي بالقيمة المضافة.
           </p>
         </motion.div>
 
-        {/* Services Grid - Swiss Bento Style with Tonal Shifts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
+        {/* Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {servicePillars.map((pillar, index) => (
             <motion.div
-              key={service.title}
+              key={pillar.id}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{
@@ -74,19 +79,32 @@ export function Services() {
                 delay: index * 0.1,
                 ease: [0.25, 1, 0.5, 1],
               }}
-              className="group bg-[#1E293B] p-8 lg:p-10 rounded-xl cursor-pointer hover:bg-[#334155] transition-all duration-300 shadow-xl shadow-black/20"
+              onClick={() => window.location.href = `/services/${pillar.id}`}
+              className="group bg-[#1E293B] p-10 rounded-3xl cursor-pointer hover:bg-[#1F3C64] transition-all duration-500 border border-white/5 hover:border-[#0BAFB4]/30 shadow-2xl relative overflow-hidden"
             >
-              <div className="w-14 h-14 rounded-lg bg-[#0F172A] flex items-center justify-center mb-6 group-hover:bg-[#55D9DE]/10 transition-colors duration-300">
-                <service.icon className="w-7 h-7 text-[#55D9DE]" />
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#0BAFB4]/10 rounded-full blur-3xl group-hover:bg-[#0BAFB4]/20 transition-colors duration-500" />
+
+              <div className="w-16 h-16 rounded-2xl bg-[#0F172A] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                <pillar.icon className="w-8 h-8 text-[#0BAFB4]" />
               </div>
 
-              <h3 className="text-xl font-bold text-[#F8FAFC] mb-3 group-hover:text-[#55D9DE] transition-colors duration-300">
-                {service.title}
+              <h3 className="text-2xl font-black text-[#F8FAFC] mb-6">
+                {pillar.title}
               </h3>
 
-              <p className="text-[#94A3B8] leading-relaxed">
-                {service.description}
-              </p>
+              <ul className="space-y-4 mb-8">
+                {pillar.details.map((detail, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-[#94A3B8] group-hover:text-white/80 transition-colors">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#0BAFB4]" />
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex items-center gap-2 text-[#0BAFB4] font-bold group-hover:gap-4 transition-all">
+                اقرأ المزيد
+                <span className="text-xl">←</span>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -132,7 +132,7 @@ export function Portfolio() {
       <div className="w-full px-6 lg:px-8 mb-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
           <div>
-            <span className="inline-block text-[#55D9DE] text-sm font-bold tracking-wider mb-4">
+            <span className="inline-block text-[#0BAFB4] text-sm font-bold tracking-wider mb-4">
               أعمالنا
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white">
@@ -147,8 +147,8 @@ export function Portfolio() {
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`px-5 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${activeCategory === category
-                    ? 'bg-[#55D9DE] text-[#0F172A]'
-                    : 'bg-[#1E293B] text-[#94A3B8] hover:text-white hover:bg-[#334155]'
+                  ? 'bg-[#0BAFB4] text-[#E7F7F8]'
+                  : 'bg-[#1E293B] text-[#94A3B8] hover:text-white hover:bg-[#334155]'
                   }`}
               >
                 {category}
@@ -184,12 +184,12 @@ export function Portfolio() {
             {/* Project Info */}
             <div className="p-5 flex items-center justify-between">
               <div>
-                <h3 className="font-bold text-white mb-1 group-hover:text-[#55D9DE] transition-colors">
+                <h3 className="font-bold text-white mb-1 group-hover:text-[#0BAFB4] transition-colors">
                   {project.title}
                 </h3>
                 <span className="text-sm text-[#94A3B8]">{project.category}</span>
               </div>
-              <ArrowUpLeft className="w-5 h-5 text-[#94A3B8] group-hover:text-[#55D9DE] transition-colors" />
+              <ArrowUpLeft className="w-5 h-5 text-[#94A3B8] group-hover:text-[#0BAFB4] transition-colors" />
             </div>
           </div>
         ))}

@@ -44,7 +44,7 @@ export function Footer() {
           >
             <Link href="/" className="flex items-center gap-2 mb-6">
               <span className="text-2xl font-black text-[#F8FAFC]">
-                SSV<span className="text-[#55D9DE]">.</span>
+                SSV<span className="text-[#0BAFB4]">.</span>
               </span>
               <span className="text-sm text-[#94A3B8]">agency</span>
             </Link>
@@ -58,7 +58,7 @@ export function Footer() {
                 <motion.a
                   key={social.label}
                   href={social.href}
-                  whileHover={{ scale: 1.1, backgroundColor: '#55D9DE', color: '#0F172A' }}
+                  whileHover={{ scale: 1.1, backgroundColor: '#0BAFB4', color: '#E7F7F8' }}
                   whileTap={{ scale: 0.95 }}
                   className="w-10 h-10 rounded-lg bg-[#1E293B] border border-white/5 flex items-center justify-center text-[#F8FAFC] transition-all duration-300"
                   aria-label={social.label}
@@ -83,7 +83,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-[#94A3B8] text-sm hover:text-[#55D9DE] transition-colors duration-300"
+                    className="text-[#94A3B8] text-sm hover:text-[#0BAFB4] transition-colors duration-300"
                   >
                     {link.label}
                   </a>
@@ -106,7 +106,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-[#94A3B8] text-sm hover:text-[#55D9DE] transition-colors duration-300"
+                    className="text-[#94A3B8] text-sm hover:text-[#0BAFB4] transition-colors duration-300"
                   >
                     {link.label}
                   </a>
@@ -126,15 +126,15 @@ export function Footer() {
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-[#55D9DE] mt-1 flex-shrink-0" />
+                <Mail className="w-4 h-4 text-[#0BAFB4] mt-1 flex-shrink-0" />
                 <span className="text-[#94A3B8] text-sm">hello@ssv.agency</span>
               </li>
               <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-[#55D9DE] mt-1 flex-shrink-0" />
+                <Phone className="w-4 h-4 text-[#0BAFB4] mt-1 flex-shrink-0" />
                 <span className="text-[#94A3B8] text-sm" dir="ltr">+966 50 000 0000</span>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#55D9DE] mt-1 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-[#0BAFB4] mt-1 flex-shrink-0" />
                 <span className="text-[#94A3B8] text-sm">الرياض، المملكة العربية السعودية</span>
               </li>
             </ul>
@@ -152,10 +152,10 @@ export function Footer() {
             © 2026 SSV Agency. جميع الحقوق محفوظة.
           </p>
           <div className="flex gap-6 text-xs text-[#94A3B8]/60">
-            <a href="#" className="hover:text-[#55D9DE] transition-colors">
+            <a href="#" className="hover:text-[#0BAFB4] transition-colors">
               سياسة الخصوصية
             </a>
-            <a href="#" className="hover:text-[#55D9DE] transition-colors">
+            <a href="#" className="hover:text-[#0BAFB4] transition-colors">
               الشروط والأحكام
             </a>
           </div>
