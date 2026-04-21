@@ -68,16 +68,20 @@ export function Hero() {
 
   return (
     <section ref={containerRef} id="home" className="relative h-screen w-full overflow-hidden bg-[#0F172A]">
-      {/* YouTube Video Background */}
+      {/* YouTube Video Background with true cover logic */}
       <div ref={bgRef} className="absolute inset-0 z-0 origin-center bg-[#0F172A] overflow-hidden pointer-events-none">
         <iframe
           src="https://www.youtube.com/embed/nVAoth0s-TY?autoplay=1&mute=1&loop=1&playlist=nVAoth0s-TY&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&start=15&enablejsapi=1"
-          className="absolute top-1/2 left-1/2 w-[115%] h-[115%] -translate-x-1/2 -translate-y-1/2 object-cover pointer-events-none opacity-80"
+          className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-80"
+          style={{
+            width: 'max(100vw, (100vh * 16 / 9))',
+            height: 'max(100vh, (100vw * 9 / 16))',
+          }}
           allow="autoplay; encrypted-media"
           title="Hero Background Video"
         />
         {/* Dark Overlay for cinematic depth and readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0F172A]/80 via-[#0F172A]/40 to-[#0F172A]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0F172A]/90 via-[#0F172A]/40 to-[#0F172A]" />
       </div>
 
       {/* Content */}
