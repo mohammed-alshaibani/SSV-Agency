@@ -1,113 +1,210 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { Video, Layers, Camera, Megaphone, PenTool, BarChart3 } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { Lightbulb, Palette, Camera, Megaphone } from 'lucide-react'
 
-const servicePillars = [
+const serviceIdentities = [
   {
-    id: 'strategy',
-    icon: BarChart3,
-    title: 'الاستراتيجية (Strategy)',
-    description: 'بناء خارطة طريق واضحة لنمو علامتك التجارية.',
-    details: [
-      'تحليل السوق',
-      'تحديد الجمهور',
-      'بناء خطة تسويقية واضحة'
-    ]
+    id: 'idea',
+    icon: Lightbulb,
+    title: 'الفكرة',
+    subtitle: 'التفكير الإبداعي',
+    color: '#0BAFB4',
+    services: [
+      { number: '01', title: 'استراتيجية التواصل', description: 'نصنع استراتيجية تواصل شاملة تحدد الجمهور المستهدف والقنوات المناسبة' },
+      { number: '02', title: 'إدارة المحتوى', description: 'ندير حسابات منشأتك في منصات التواصل ونصنع فيها محتوى لافت' },
+      { number: '03', title: 'كتابة المحتوى', description: 'نكتب محتوى الملفات التعريفية والتقارير السنوية والعروض التقديمية' },
+      { number: '04', title: 'المحتوى الرقمي', description: 'نبتكر للمواقع والتطبيقات محتويات تجذب عملائك' },
+    ],
   },
   {
-    id: 'support',
-    icon: Layers,
-    title: 'التنفيذ (Support)',
-    description: 'تحويل الخطط إلى واقع ملموس عبر فريق إبداعي.',
-    details: [
-      'إدارة السوشيال ميديا',
-      'تصميم الهوية والمحتوى',
-      'الحملات الإعلانية',
-      'المواقع والمتاجر'
-    ]
+    id: 'identity',
+    icon: Palette,
+    title: 'الهوية',
+    subtitle: 'التصميم البصري',
+    color: '#55D9DE',
+    services: [
+      { number: '01', title: 'ابتكار الأسماء', description: 'نفكر بدالك ونلقى اسم إبداعي يميز مشروعك عن غيره' },
+      { number: '02', title: 'قصة العلامة', description: 'نخلق قصة لعلامتك التجارية توضح رؤيتك ورسالتك وقيمك' },
+      { number: '03', title: 'الهوية البصرية', description: 'نصمم الشعار والتطبيقات البصرية ضمن دليل هوية متكامل' },
+      { number: '04', title: 'تصميم UI/UX', description: 'نصمم الموقع الإلكتروني أو التطبيق الرقمي الخاص بمنشأتك' },
+    ],
   },
   {
-    id: 'value',
-    icon: PenTool,
-    title: 'القياس والتطوير (Value)',
-    description: 'تحسين مستمر لضمان أعلى عائد على الاستثمار.',
-    details: [
-      'تحليل الأداء',
-      'تقارير دورية',
-      'تحسين مستمر',
-      'زيادة العائد على الاستثمار'
-    ]
-  }
+    id: 'image',
+    icon: Camera,
+    title: 'الصورة',
+    subtitle: 'الإنتاج المرئي',
+    color: '#0BAFB4',
+    services: [
+      { number: '01', title: 'فيديوهات AI', description: 'ننتج فيديوهات إبداعية باستخدام أحدث تقنيات الذكاء الاصطناعي' },
+      { number: '02', title: 'تصوير المنتجات', description: 'نصوِّر منتجات منشأتك بشكل إبداعي يلفت الانتباه' },
+      { number: '03', title: 'فيديوهات UGC', description: 'نقدم منتجاتك من خلال فيديوهات تجذب عملائك وتزيد مبيعاتك' },
+      { number: '04', title: 'تغطية الأحداث', description: 'نغطي الأحداث الخاصة بمنشأتك عبر كاميرتنا' },
+    ],
+  },
+  {
+    id: 'campaign',
+    icon: Megaphone,
+    title: 'الحملة',
+    subtitle: 'التسويق والإعلان',
+    color: '#55D9DE',
+    services: [
+      { number: '01', title: 'الأفكار الإبداعية', description: 'نكتب أفكار إبداعية نوصل لها بعد مشوار من الاشتعال' },
+      { number: '02', title: 'السيناريو البصري', description: 'نحول الفكرة الإبداعية المعتمدة إلى سيناريو وتصورات بصرية' },
+      { number: '03', title: 'إنتاج الحملة', description: 'ننتج وننفذ مخرجات الحملة من فيديوهات وتصاميم وتفعيلات' },
+      { number: '04', title: 'إدارة الحملة', description: 'ندير الحملة التسويقية ونتابع كل تفصيلة ونقدم تقارير دورية' },
+    ],
+  },
 ]
 
 export function Services() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const [activeIdentity, setActiveIdentity] = useState('idea')
+
+  const currentIdentity = serviceIdentities.find(i => i.id === activeIdentity) || serviceIdentities[0]
 
   return (
-    <section ref={ref} id="services" className="bg-[#0F172A] py-24 lg:py-32">
+    <section ref={ref} id="services" className="bg-[#0F172A] py-24 lg:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-          className="text-center mb-20"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-16"
         >
           <span className="inline-block text-[#0BAFB4] text-sm font-bold tracking-wider mb-4 uppercase">
-            خدمات الشركة
+            كل قطعة في SSV تقدم لعميلها شيء
           </span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#F8FAFC] mb-8">
-            3 محاور رئيسية لنمو مبيعاتك
+            خدماتنا المتكاملة
           </h2>
-          <p className="text-[#94A3B8] text-xl max-w-3xl mx-auto leading-relaxed">
-            نحن لا نقدم مجرد خدمات، نحن نصمم رحلة شاملة تبدأ بالاستراتيجية وتنتهي بالقيمة المضافة.
-          </p>
         </motion.div>
 
-        {/* Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {servicePillars.map((pillar, index) => (
-            <motion.div
-              key={pillar.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-                ease: [0.25, 1, 0.5, 1],
-              }}
-              onClick={() => window.location.href = `/services/${pillar.id}`}
-              className="group bg-[#1E293B] p-10 rounded-3xl cursor-pointer hover:bg-[#1F3C64] transition-all duration-500 border border-white/5 hover:border-[#0BAFB4]/30 shadow-2xl relative overflow-hidden"
+        {/* Identity Tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-3 mb-16"
+        >
+          {serviceIdentities.map((identity) => (
+            <button
+              key={identity.id}
+              onClick={() => setActiveIdentity(identity.id)}
+              className={`group relative px-6 py-4 rounded-xl font-bold text-base transition-all duration-500 ${activeIdentity === identity.id
+                ? 'text-[#0F172A]'
+                : 'text-[#94A3B8] hover:text-white bg-[#1E293B]/50 hover:bg-[#1E293B]'
+                }`}
             >
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#0BAFB4]/10 rounded-full blur-3xl group-hover:bg-[#0BAFB4]/20 transition-colors duration-500" />
+              {activeIdentity === identity.id && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute inset-0 rounded-xl"
+                  style={{ backgroundColor: identity.color }}
+                  transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                />
+              )}
+              <span className="relative flex items-center gap-2">
+                <identity.icon className="w-5 h-5" />
+                {identity.title}
+              </span>
+            </button>
+          ))}
+        </motion.div>
 
-              <div className="w-16 h-16 rounded-2xl bg-[#0F172A] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
-                <pillar.icon className="w-8 h-8 text-[#0BAFB4]" />
-              </div>
+        {/* Services Grid */}
+        <motion.div
+          key={activeIdentity}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          {currentIdentity.services.map((service, index) => (
+            <motion.div
+              key={service.number}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="group relative"
+            >
+              {/* Glow effect */}
+              <div
+                className="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                style={{ backgroundColor: currentIdentity.color }}
+              />
 
-              <h3 className="text-2xl font-black text-[#F8FAFC] mb-6">
-                {pillar.title}
-              </h3>
+              {/* Card */}
+              <div className="relative bg-[#1E293B]/60 backdrop-blur-xl p-8 rounded-2xl border border-white/5 group-hover:border-white/10 transition-all duration-500 h-full">
+                {/* Number */}
+                <span
+                  className="inline-block text-5xl font-black mb-4 opacity-20 group-hover:opacity-40 transition-opacity"
+                  style={{ color: currentIdentity.color }}
+                >
+                  {service.number}
+                </span>
 
-              <ul className="space-y-4 mb-8">
-                {pillar.details.map((detail, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-[#94A3B8] group-hover:text-white/80 transition-colors">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#0BAFB4]" />
-                    {detail}
-                  </li>
-                ))}
-              </ul>
+                <h3 className="text-xl font-bold text-[#F8FAFC] mb-3 group-hover:text-white transition-colors">
+                  {service.title}
+                </h3>
 
-              <div className="flex items-center gap-2 text-[#0BAFB4] font-bold group-hover:gap-4 transition-all">
-                اقرأ المزيد
-                <span className="text-xl">←</span>
+                <p className="text-[#94A3B8] leading-relaxed group-hover:text-[#B4C6D4] transition-colors">
+                  {service.description}
+                </p>
+
+                {/* Floating accent */}
+                <motion.div
+                  className="absolute top-6 left-6 w-2 h-2 rounded-full"
+                  style={{ backgroundColor: currentIdentity.color }}
+                  animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                />
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        {/* Why SSV Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-24 text-center"
+        >
+          <h3 className="text-2xl md:text-3xl font-black text-[#F8FAFC] mb-6">
+            ليش SSV؟
+          </h3>
+          <p className="text-[#94A3B8] text-lg max-w-3xl mx-auto leading-relaxed mb-12">
+            لأننا ببساطة ما نقدم بس خدمة تسويقية، حنا نشارك عملائنا رحلة تسويقية إبداعية متكاملة
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { title: 'التفكير الإبداعي ما يوقف', description: 'هو أساس SSV، وحالة الاشتعال تستمر معنا في كل مراحل شغلنا' },
+              { title: 'نحرص، نهتم، وندقق', description: 'في كل خطوة ومرحلة تخص المشروع، لأن يهمنا عميلنا ويهمنا اسمنا' },
+              { title: 'نعكس ثقافتنا', description: 'في تفكيرنا وتخطيطنا وتصميمنا نعكس الشيء اللي يتناسب مع بيئتنا السعودية' },
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                className="bg-[#1E293B]/40 backdrop-blur-xl p-8 rounded-2xl border border-white/5"
+              >
+                <h4 className="text-lg font-bold text-[#0BAFB4] mb-3">{item.title}</h4>
+                <p className="text-[#94A3B8] text-sm leading-relaxed">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )

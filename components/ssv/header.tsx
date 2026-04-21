@@ -10,7 +10,6 @@ const navLinks = [
   { href: '#about', label: 'من نحن' },
   { href: '#services', label: 'خدماتنا' },
   { href: '#portfolio', label: 'أعمالنا' },
-  { href: '#blog', label: 'المدونة' },
   { href: '#contact', label: 'تواصل معنا' },
 ]
 
@@ -42,35 +41,49 @@ export function Header() {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? 'glass-dark border-b border-white/5 shadow-2xl'
+          ? 'bg-[#0F172A]/80 backdrop-blur-2xl border-b border-white/5 shadow-2xl shadow-black/20'
           : 'bg-transparent'
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3">
-              <div className="text-2xl font-black tracking-tight text-[#F8FAFC]">
-                SSV
-                <span className="text-[#0BAFB4]">.</span>
-              </div>
-              <span className="text-sm font-medium text-[#94A3B8]">
+            <Link href="/" className="flex items-center gap-2 group">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="relative"
+              >
+                <span className="text-3xl font-black tracking-tight text-[#F8FAFC]">
+                  SSV
+                </span>
+                <motion.span
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#0BAFB4] origin-right"
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.div>
+              <span className="text-xs font-medium text-[#94A3B8] uppercase tracking-widest">
                 agency
               </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-sm font-medium transition-colors duration-300 hover:text-[#0BAFB4] text-[#F8FAFC]"
+                  className="relative px-4 py-2 text-sm font-medium text-[#94A3B8] hover:text-[#F8FAFC] transition-colors duration-300 group"
                 >
                   {link.label}
+                  <motion.span
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#0BAFB4] opacity-0 group-hover:opacity-100"
+                    layoutId="navIndicator"
+                  />
                 </a>
               ))}
             </nav>
@@ -79,10 +92,13 @@ export function Header() {
             <div className="hidden lg:flex items-center gap-4">
               <Link
                 href="/contact"
-                className="btn-accent px-6 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 text-[#E7F7F8]"
+                className="group relative px-6 py-3 rounded-xl overflow-hidden"
               >
-                <Phone className="w-4 h-4" />
-                إحجز استشارة مجانية
+                <span className="absolute inset-0 bg-[#0BAFB4] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105" />
+                <span className="relative flex items-center gap-2 text-sm font-bold text-[#0F172A]">
+                  <Phone className="w-4 h-4" />
+                  تواصل معنا
+                </span>
               </Link>
             </div>
 
@@ -108,38 +124,47 @@ export function Header() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 lg:hidden"
           >
-            <div className="absolute inset-0 bg-[#0F172A]/80 backdrop-blur-sm" onClick={() => setIsMobileMenuOpen(false)} />
+            <div className="absolute inset-0 bg-[#0F172A]/90 backdrop-blur-xl" onClick={() => setIsMobileMenuOpen(false)} />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
-              className="absolute top-0 left-0 w-80 h-full bg-[#1E293B] shadow-2xl"
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute top-0 left-0 w-80 h-full bg-[#1E293B]/95 backdrop-blur-2xl border-l border-white/5"
             >
               <div className="p-6 pt-24 text-right">
-                <nav className="flex flex-col gap-4">
-                  {navLinks.map((link) => (
-                    <a
+                <nav className="flex flex-col gap-2">
+                  {navLinks.map((link, index) => (
+                    <motion.a
                       key={link.href}
                       href={link.href}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
                       onClick={(e) => {
                         handleNavClick(e, link.href)
                         setIsMobileMenuOpen(false)
                       }}
-                      className="text-lg font-medium text-[#F8FAFC] hover:text-[#0BAFB4] transition-colors py-2 border-b border-white/5"
+                      className="text-lg font-medium text-[#F8FAFC] hover:text-[#0BAFB4] transition-colors py-3 px-4 rounded-xl hover:bg-white/5"
                     >
                       {link.label}
-                    </a>
+                    </motion.a>
                   ))}
                 </nav>
-                <Link
-                  href="/contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="btn-accent w-full mt-8 px-6 py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2 text-[#E7F7F8]"
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.3 }}
                 >
-                  <Phone className="w-4 h-4" />
-                  إحجز استشارة مجانية
-                </Link>
+                  <Link
+                    href="/contact"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="w-full mt-8 px-6 py-4 rounded-xl text-base font-bold flex items-center justify-center gap-2 bg-[#0BAFB4] text-[#0F172A]"
+                  >
+                    <Phone className="w-4 h-4" />
+                    تواصل معنا
+                  </Link>
+                </motion.div>
               </div>
             </motion.div>
           </motion.div>

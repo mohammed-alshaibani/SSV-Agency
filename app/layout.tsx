@@ -36,8 +36,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ar" dir="rtl" className={`${tajawal.variable} ${manrope.variable} dark`}>
-      <body className="font-sans antialiased bg-[#0F172A] text-[#F8FAFC]">
+    <html lang="ar" dir="rtl" className={`${tajawal.variable} ${manrope.variable} dark bg-[#0F172A]`}>
+      <body className="font-sans antialiased bg-[#0F172A] text-[#F8FAFC] overflow-x-hidden">
         <SmoothScroll>
           {children}
           {process.env.NODE_ENV === 'production' && <Analytics />}

@@ -1,198 +1,137 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import Image from 'next/image'
 import { Play, ArrowUpLeft } from 'lucide-react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useGSAP } from '@gsap/react'
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger, useGSAP)
-}
-
-const categories = ['الكل', 'موشن جرافيك', 'إنتاج مرئي', 'تصوير تجاري']
+import { motion, useInView } from 'framer-motion'
 
 const projects = [
   {
     src: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070',
-    title: 'حملة إعلانية - موسم الرياض',
+    title: 'أول طموحاتنا',
     category: 'إنتاج مرئي',
+    description: 'حملة إعلانية متكاملة',
   },
   {
     src: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2000',
-    title: 'فيديو ترويجي - تطبيق مالي',
+    title: 'عزاوي',
     category: 'موشن جرافيك',
+    description: 'هوية بصرية متحركة',
   },
   {
     src: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2071',
-    title: 'تصوير منتجات - علامة فاخرة',
+    title: 'ريادة ممتدة',
     category: 'تصوير تجاري',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=2062',
-    title: 'فيلم وثائقي - رؤية 2030',
-    category: 'إنتاج مرئي',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1551817958-d9d86fb29431?q=80&w=2070',
-    title: 'هوية بصرية متحركة',
-    category: 'موشن جرافيك',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070',
-    title: 'تصوير معماري - مشروع نيوم',
-    category: 'تصوير تجاري',
+    description: 'فيلم وثائقي قصير',
   },
 ]
 
 export function Portfolio() {
   const containerRef = useRef<HTMLElement>(null)
-  const wrapperRef = useRef<HTMLDivElement>(null)
-  const [activeCategory, setActiveCategory] = useState('الكل')
-
-  const filteredProjects = activeCategory === 'الكل'
-    ? projects
-    : projects.filter(p => p.category === activeCategory)
-
-  useGSAP(() => {
-    if (!wrapperRef.current || !containerRef.current) return;
-
-    // We only want to pin and horizontal scroll if the screen is large enough and has scrollable width
-    let ctx = gsap.context(() => {
-      const cards = gsap.utils.toArray('.project-card');
-
-      // Calculate how much we need to move horizontally
-      // For RTL, X moves positively to show content that is overflowing to the left
-      const getScrollAmount = () => {
-        let maxScroll = wrapperRef.current ? wrapperRef.current.scrollWidth - window.innerWidth : 0;
-        return typeof maxScroll === "number" && maxScroll > 0 ? maxScroll + 100 : 0; // +100 for some padding
-      }
-
-      const tween = gsap.to(wrapperRef.current, {
-        x: () => getScrollAmount(), // for RTL this should be positive
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          pin: true,
-          scrub: 1, // smooth scrubbing
-          invalidateOnRefresh: true,
-          end: () => `+=${getScrollAmount()}`,
-        }
-      });
-
-      // Velocity-based Skew Effect
-      const proxy = { skew: 0 };
-      const skewSetter = gsap.quickSetter('.project-card', 'skewX', 'deg');
-      const clamp = gsap.utils.clamp(-8, 8); // clamp the skew
-
-      ScrollTrigger.create({
-        onUpdate: (self) => {
-          let velocity = self.getVelocity();
-          // Adjust velocity multiplier based on scroll speed you prefer
-          let skewAmount = clamp(velocity / -300);
-
-          if (Math.abs(skewAmount) > Math.abs(proxy.skew)) {
-            proxy.skew = skewAmount;
-            gsap.to(proxy, {
-              skew: 0,
-              duration: 0.8,
-              ease: "power3",
-              overwrite: true,
-              onUpdate: () => skewSetter(proxy.skew)
-            });
-          }
-        }
-      });
-
-      // Simple Parallax for images inside the cards during horizontal scroll
-      cards.forEach((card: any) => {
-        const img = card.querySelector('.parallax-img');
-        if (img) {
-          gsap.to(img, {
-            x: -50, // Move image slightly in opposite direction
-            ease: "none",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              containerAnimation: tween,
-              start: "left right",
-              end: "right left",
-              scrub: true,
-            }
-          });
-        }
-      });
-
-    }, containerRef);
-    return () => ctx.revert();
-  }, { dependencies: [filteredProjects], scope: containerRef });
+  const isInView = useInView(containerRef, { once: true, margin: '-100px' })
 
   return (
-    <section ref={containerRef} id="portfolio" className="bg-[#0F172A] py-24 lg:py-32 overflow-hidden h-screen flex flex-col justify-center">
-      <div className="w-full px-6 lg:px-8 mb-12">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-          <div>
-            <span className="inline-block text-[#0BAFB4] text-sm font-bold tracking-wider mb-4">
-              أعمالنا
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white">
-              مشاريع نفخر بها
-            </h2>
-          </div>
+    <section ref={containerRef} id="portfolio" className="bg-[#0F172A] py-24 lg:py-32 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-16"
+        >
+          <span className="inline-block text-[#0BAFB4] text-sm font-bold tracking-wider mb-4 uppercase">
+            شف أعمالنا
+          </span>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#F8FAFC] mb-8">
+            مشاريع نفخر بها
+          </h2>
+        </motion.div>
 
-          {/* Filter Tabs */}
-          <div className="flex gap-2 flex-wrap">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-5 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${activeCategory === category
-                  ? 'bg-[#0BAFB4] text-[#E7F7F8]'
-                  : 'bg-[#1E293B] text-[#94A3B8] hover:text-white hover:bg-[#334155]'
-                  }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              whileHover={{ y: -8 }}
+              className="group relative"
+            >
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-[#0BAFB4]/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      {/* Horizontally scrolling wrapper */}
-      <div ref={wrapperRef} className="flex gap-8 px-6 lg:px-8 w-max">
-        {filteredProjects.map((project, index) => (
-          <div
-            key={project.title}
-            className="project-card group relative bg-[#1E293B] rounded-xl overflow-hidden cursor-pointer w-[80vw] md:w-[45vw] lg:w-[30vw] flex-shrink-0 shadow-2xl shadow-black/40"
-          >
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <Image
-                src={project.src}
-                alt={project.title}
-                fill
-                className="parallax-img object-cover scale-110"
-              />
+              <div className="relative bg-[#1E293B]/60 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/5 group-hover:border-[#0BAFB4]/20 transition-all duration-500">
+                {/* Image */}
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={project.src}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
 
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-[#0F172A]/80 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-                <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center transform scale-75 group-hover:scale-100 transition-transform duration-300">
-                  <Play className="w-6 h-6 text-[#0F172A] fill-current mr-[-2px]" />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+
+                  {/* Play Button */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-16 h-16 rounded-full bg-white/90 backdrop-blur-xl flex items-center justify-center cursor-pointer"
+                    >
+                      <Play className="w-6 h-6 text-[#0F172A] fill-current mr-[-2px]" />
+                    </motion.div>
+                  </div>
+
+                  {/* Category Badge */}
+                  <div className="absolute top-4 right-4">
+                    <span className="px-3 py-1 rounded-full bg-[#0BAFB4]/20 backdrop-blur-xl text-[#0BAFB4] text-xs font-bold">
+                      {project.category}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#F8FAFC] mb-2 group-hover:text-[#0BAFB4] transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-[#94A3B8] text-sm mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex items-center gap-2 text-[#0BAFB4] font-bold text-sm group-hover:gap-4 transition-all">
+                    شاهد المشروع
+                    <ArrowUpLeft className="w-4 h-4" />
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
+          ))}
+        </div>
 
-            {/* Project Info */}
-            <div className="p-5 flex items-center justify-between">
-              <div>
-                <h3 className="font-bold text-white mb-1 group-hover:text-[#0BAFB4] transition-colors">
-                  {project.title}
-                </h3>
-                <span className="text-sm text-[#94A3B8]">{project.category}</span>
-              </div>
-              <ArrowUpLeft className="w-5 h-5 text-[#94A3B8] group-hover:text-[#0BAFB4] transition-colors" />
-            </div>
-          </div>
-        ))}
+        {/* View All CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center mt-12"
+        >
+          <motion.button
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="px-8 py-4 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 text-white font-bold hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+          >
+            شاهد جميع الأعمال
+            <span className="mr-2 text-[#0BAFB4]">←</span>
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   )
