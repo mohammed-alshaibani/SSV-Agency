@@ -32,9 +32,10 @@ const config: Config = {
                 body: ["var(--font-manrope)", "sans-serif"],
             },
             animation: {
-                'infinite-scroll': 'infinite-scroll 30s linear infinite',
+                'infinite-scroll': 'infinite-scroll 60s linear infinite',
                 'marquee': 'marquee 40s linear infinite',
                 'marquee-reverse': 'marquee-reverse 40s linear infinite',
+                'logo-wave': 'logo-wave 2.4s ease-in-out infinite',
             },
             keyframes: {
                 'infinite-scroll': {
@@ -48,7 +49,11 @@ const config: Config = {
                 'marquee-reverse': {
                     from: { transform: 'translateX(-50%)' },
                     to: { transform: 'translateX(0)' },
-                }
+                },
+                'logo-wave': {
+                    '0%, 100%': { transform: 'translateY(0px)' },
+                    '50%': { transform: 'translateY(-18px)' },
+                },
             }
         },
     },
