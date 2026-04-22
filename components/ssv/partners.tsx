@@ -35,15 +35,9 @@ export function Partners() {
       </div>
 
       {/* Premium Infinite Marquee */}
-      <div
-        className="relative overflow-hidden py-16 bg-[#1F3C64]"
-        style={{
-          maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
-        }}
-      >
+      <div className="relative overflow-hidden py-16 bg-[#1F3C64]">
         <div className="flex animate-infinite-scroll whitespace-nowrap gap-24 w-max">
-          {[...partnerLogos, ...partnerLogos].map((logo, index) => (
+          {[...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, index) => (
             <div
               key={`${logo}-${index}`}
               className="flex items-center justify-center transition-all duration-700 ease-in-out cursor-pointer hover:scale-110 px-4"
@@ -51,7 +45,7 @@ export function Partners() {
               <img
                 src={`/partners/${logo}`}
                 alt={`Partner`}
-                className="h-16 md:h-20 w-auto object-contain filter brightness-0 invert drop-shadow-[0_0_10px_rgba(231,247,248,0.1)] opacity-70 hover:opacity-100 transition-all duration-500"
+                className="h-16 md:h-20 w-auto object-contain filter invert brightness-[2] opacity-100 transition-all duration-500"
               />
             </div>
           ))}
