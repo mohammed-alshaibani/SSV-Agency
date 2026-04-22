@@ -34,19 +34,32 @@ export function Partners() {
         </motion.div>
       </div>
 
-      {/* Premium Infinite Marquee */}
+      {/* Premium Glassmorphic Marquee */}
       <div className="relative overflow-hidden py-16 bg-[#1F3C64]">
-        <div className="flex animate-infinite-scroll whitespace-nowrap gap-24 w-max">
+        <div
+          className="flex gap-12 animate-marquee w-max"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+          }}
+        >
           {[...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, index) => (
-            <div
-              key={`${logo}-${index}`}
-              className="flex items-center justify-center transition-all duration-700 ease-in-out cursor-pointer hover:scale-110 px-4"
-            >
-              <img
-                src={`/partners/${logo}`}
-                alt={`Partner`}
-                className="h-16 md:h-20 w-auto object-contain filter invert brightness-[2] opacity-100 transition-all duration-500"
-              />
+            <div key={`${logo}-${index}`} className="flex-shrink-0 p-6">
+              {/* Glassmorphism Container */}
+              <div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-white/20 transition-colors duration-500 group">
+                {/* Inner Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-3xl" />
+
+                {/* Logo Image */}
+                <img
+                  src={`/partners/${logo}`}
+                  alt={`Partner Logo`}
+                  className="h-16 md:h-20 w-auto object-contain relative z-10 filter invert brightness-[2] drop-shadow-[0_0_15px_rgba(231,247,248,0.2)] transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-110"
+                />
+
+                {/* Bottom Reflection */}
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-3/4 h-2 bg-black/20 blur-md rounded-full opacity-50" />
+              </div>
             </div>
           ))}
         </div>
