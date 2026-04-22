@@ -12,7 +12,6 @@ const navLinks = [
   {
     label: 'خدماتنا',
     dropdown: [
-      { href: '/services/details', label: 'عرض خدمة تفصيلية' },
       { href: '/services/strategy', label: 'الاستراتيجية (Strategy)' },
       { href: '/services/support', label: 'التنفيذ (Support)' },
       { href: '/services/value', label: 'القياس والتطوير (Value)' },

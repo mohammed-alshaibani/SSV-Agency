@@ -18,8 +18,7 @@ const servicePillars = [
     details: [
       { id: '1', text: 'تحليل السوق' },
       { id: '2', text: 'تحديد الجمهور' },
-      { id: '3', text: 'بناء خطة تسويقية واضحة' },
-      { id: '4', text: 'تحديد مؤشرات قياس الأداء' }
+      { id: '3', text: 'بناء خطة تسويقية' },
     ]
   },
   {
@@ -31,7 +30,6 @@ const servicePillars = [
       { id: '1', text: 'إدارة السوشيال ميديا' },
       { id: '2', text: 'تصميم الهوية والمحتوى' },
       { id: '3', text: 'الحملات الإعلانية' },
-      { id: '4', text: 'المواقع والمتاجر' }
     ]
   },
   {
@@ -43,7 +41,6 @@ const servicePillars = [
       { id: '1', text: 'تحليل الأداء' },
       { id: '2', text: 'تقارير دورية' },
       { id: '3', text: 'تحسين مستمر' },
-      { id: '4', text: 'زيادة العائد على الاستثمار' }
     ]
   }
 ]
@@ -167,10 +164,9 @@ export function Services() {
               {/* Asymmetrical 3-Column Layout */}
               <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr_1.2fr] items-center gap-4 lg:gap-16 w-full max-w-full relative">
 
-                {/* 1. Right Column (RTL Start): 01 & 03 (Asymmetrical Vertically) */}
-                <div className="hidden lg:flex flex-col gap-24 justify-center items-end">
-                  {/* Quadrant 1: Top Right - High Position */}
-                  <div className="quadrant-card group relative bg-white/[0.02] backdrop-blur-3xl p-8 rounded-[2.5rem] w-full max-w-[340px] transition-all duration-500 hover:bg-white/[0.05] translate-y-[-6rem] pointer-events-auto">
+                {/* 1. Right Column (RTL Start): 01 only — centered vertically */}
+                <div className="hidden lg:flex flex-col justify-center items-end">
+                  <div className="quadrant-card group relative bg-white/[0.02] backdrop-blur-3xl p-8 rounded-[2.5rem] w-full max-w-[340px] transition-all duration-500 hover:bg-white/[0.05] pointer-events-auto">
                     <div className="absolute top-6 right-8 text-[#E7F7F8]/[0.12] text-7xl font-black select-none z-0">01</div>
                     <div className="relative z-10 pt-4">
                       <h4 className="text-[#E2E8F0] text-xl md:text-2xl font-bold leading-tight mb-2">
@@ -179,22 +175,10 @@ export function Services() {
                       <div className="h-1 w-12 bg-[#0BAFB4]/30 rounded-full group-hover:w-24 transition-all duration-700" />
                     </div>
                   </div>
-
-                  {/* Quadrant 3: Bottom Right - Low Position */}
-                  <div className="quadrant-card group relative bg-white/[0.02] backdrop-blur-3xl p-8 rounded-[2.5rem] w-full max-w-[340px] transition-all duration-500 hover:bg-white/[0.05] translate-y-[6rem] pointer-events-auto">
-                    <div className="absolute top-6 right-8 text-[#E7F7F8]/[0.12] text-7xl font-black select-none z-0">03</div>
-                    <div className="relative z-10 pt-4">
-                      <h4 className="text-[#E2E8F0] text-xl md:text-2xl font-bold leading-tight mb-2">
-                        {pillar.details[2].text}
-                      </h4>
-                      <div className="h-1 w-12 bg-[#0BAFB4]/30 rounded-full group-hover:w-24 transition-all duration-700" />
-                    </div>
-                  </div>
                 </div>
 
                 {/* 2. Center Column: NAKED Typography Identity (Highest Z-Index) */}
                 <div className="relative z-50 flex flex-col items-center justify-center text-center select-none pointer-events-none">
-                  {/* Naked Pillar Letter - Massive Scale */}
                   <div className="relative flex flex-col items-center">
                     <div className="absolute inset-0 bg-[#0BAFB4]/10 blur-[120px] rounded-full scale-[2] z-0" />
 
@@ -209,12 +193,22 @@ export function Services() {
                   <p className="relative z-10 text-[#94A3B8] text-lg md:text-xl font-medium leading-relaxed max-w-sm px-6 opacity-90 mt-8 pointer-events-auto">
                     {pillar.subtitle}
                   </p>
+
+                  {/* 03 card — centered below subtitle on desktop */}
+                  <div className="hidden lg:block quadrant-card group relative bg-white/[0.02] backdrop-blur-3xl p-6 rounded-[2rem] mt-10 max-w-[280px] transition-all duration-500 hover:bg-white/[0.05] pointer-events-auto w-full">
+                    <div className="absolute top-4 right-6 text-[#E7F7F8]/[0.12] text-5xl font-black select-none z-0">03</div>
+                    <div className="relative z-10 pt-2 text-center">
+                      <h4 className="text-[#E2E8F0] text-lg font-bold leading-tight mb-2">
+                        {pillar.details[2].text}
+                      </h4>
+                      <div className="h-px w-10 bg-[#0BAFB4]/30 rounded-full mx-auto group-hover:w-20 transition-all duration-700" />
+                    </div>
+                  </div>
                 </div>
 
-                {/* 3. Left Column (RTL End): 02 & 04 (Asymmetrical Stagger) */}
-                <div className="hidden lg:flex flex-col gap-24 justify-center items-start">
-                  {/* Quadrant 2: Top Left - Slightly Higher Position */}
-                  <div className="quadrant-card group relative bg-white/[0.02] backdrop-blur-3xl p-8 rounded-[2.5rem] w-full max-w-[340px] transition-all duration-500 hover:bg-white/[0.05] translate-y-[-2rem] pointer-events-auto">
+                {/* 3. Left Column (RTL End): 02 only — centered vertically */}
+                <div className="hidden lg:flex flex-col justify-center items-start">
+                  <div className="quadrant-card group relative bg-white/[0.02] backdrop-blur-3xl p-8 rounded-[2.5rem] w-full max-w-[340px] transition-all duration-500 hover:bg-white/[0.05] pointer-events-auto">
                     <div className="absolute top-6 left-8 text-[#E7F7F8]/[0.12] text-7xl font-black select-none z-0">02</div>
                     <div className="relative z-10 pt-4 text-left">
                       <h4 className="text-[#E2E8F0] text-xl md:text-2xl font-bold leading-tight mb-2">
@@ -223,25 +217,14 @@ export function Services() {
                       <div className="h-1 w-12 bg-[#0BAFB4]/30 rounded-full ml-auto group-hover:w-24 transition-all duration-700" />
                     </div>
                   </div>
-
-                  {/* Quadrant 4: Bottom Left - Deeper Low Position */}
-                  <div className="quadrant-card group relative bg-white/[0.02] backdrop-blur-3xl p-8 rounded-[2.5rem] w-full max-w-[340px] transition-all duration-500 hover:bg-white/[0.05] translate-y-[10rem] pointer-events-auto">
-                    <div className="absolute top-6 left-8 text-[#E7F7F8]/[0.12] text-7xl font-black select-none z-0">04</div>
-                    <div className="relative z-10 pt-4 text-left">
-                      <h4 className="text-[#E2E8F0] text-xl md:text-2xl font-bold leading-tight mb-2">
-                        {pillar.details[3].text}
-                      </h4>
-                      <div className="h-1 w-12 bg-[#0BAFB4]/30 rounded-full ml-auto group-hover:w-24 transition-all duration-700" />
-                    </div>
-                  </div>
                 </div>
 
-                {/* Mobile Tablet View - Simple Grid */}
-                <div className="lg:hidden grid grid-cols-2 gap-4 mt-8 w-full z-10">
+                {/* Mobile Tablet View - 3-column grid */}
+                <div className="lg:hidden grid grid-cols-3 gap-3 mt-6 w-full z-10">
                   {pillar.details.map((detail, idx) => (
-                    <div key={detail.id} className="bg-white/[0.03] backdrop-blur-2xl p-6 rounded-2xl">
-                      <div className="text-[#0BAFB4] text-sm font-black mb-2 opacity-30">0{idx + 1}</div>
-                      <p className="text-[#E7F7F8] text-sm font-bold leading-tight">{detail.text}</p>
+                    <div key={detail.id} className="bg-white/[0.03] backdrop-blur-2xl p-4 rounded-2xl">
+                      <div className="text-[#0BAFB4] text-xs font-black mb-2 opacity-40">0{idx + 1}</div>
+                      <p className="text-[#E7F7F8] text-xs font-bold leading-tight">{detail.text}</p>
                     </div>
                   ))}
                 </div>

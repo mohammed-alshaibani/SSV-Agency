@@ -71,7 +71,7 @@ export function Hero() {
         <div ref={videoWrapperRef} className="absolute inset-0 origin-center pointer-events-none">
           <iframe
             src="https://www.youtube.com/embed/nVAoth0s-TY?autoplay=1&mute=1&loop=1&playlist=nVAoth0s-TY&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&start=15&enablejsapi=1"
-            className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 opacity-100"
+            className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 opacity-30"
             style={{
               width: 'max(100vw, (100vh * 16 / 9))',
               height: 'max(100vh, (100vw * 9 / 16))',
