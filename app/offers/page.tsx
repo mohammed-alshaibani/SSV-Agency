@@ -72,7 +72,7 @@ const plans = [
 
 export default function OffersPage() {
   return (
-    <main className="min-h-screen bg-[#0F172A] font-tajawal">
+    <main className="min-h-screen bg-[#1F3C64] font-tajawal">
       <Header />
 
       {/* ── Page Hero ── */}
@@ -92,10 +92,10 @@ export default function OffersPage() {
                 <Clock className="w-4 h-4 text-[#0BAFB4] animate-pulse" />
                 <span className="text-[#0BAFB4] text-xs font-black uppercase tracking-widest">عروض محدودة لفترة الربيع</span>
             </div>
-            <h1 className="text-5xl md:text-8xl font-black text-[#F8FAFC] tracking-tighter mb-8 leading-none">
+            <h1 className="text-5xl md:text-8xl font-black text-[#E7F7F8] tracking-tighter mb-8 leading-none">
               استثمر بذكاء.. <br /> اختر <span className="text-[#0BAFB4]">باقتك المثالية</span>
             </h1>
-            <p className="text-xl md:text-2xl text-[#94A3B8] max-w-4xl mx-auto font-medium leading-relaxed">
+            <p className="text-xl md:text-2xl text-[#E7F7F8] max-w-4xl mx-auto font-medium leading-relaxed">
               لقد قمنا بتصميم باقاتنا لتناسب مختلف أحجام الأعمال، لضمان حصولك على أقصى قيمة مقابل استثمارك التسويقي.
             </p>
           </motion.div>
@@ -120,7 +120,7 @@ export default function OffersPage() {
                 }`}
               >
                 {plan.highlight && (
-                    <div className="absolute top-0 right-0 left-0 bg-[#0BAFB4] text-[#0F172A] text-center py-2 text-xs font-black tracking-widest uppercase">
+                    <div className="absolute top-0 right-0 left-0 bg-[#0BAFB4] text-[#1F3C64] text-center py-2 text-xs font-black tracking-widest uppercase">
                         الأكثر توصية
                     </div>
                 )}
@@ -137,10 +137,10 @@ export default function OffersPage() {
 
                 <div className="mb-10 flex items-baseline gap-2">
                     <span className="text-5xl font-black text-white">{plan.price}</span>
-                    <span className="text-[#94A3B8] font-bold text-lg">ريال / {plan.duration}</span>
+                    <span className="text-[#E7F7F8] font-bold text-lg">ريال / {plan.duration}</span>
                 </div>
 
-                <p className="text-[#94A3B8] text-sm leading-relaxed mb-10 opacity-80 h-12">
+                <p className="text-[#E7F7F8] text-sm leading-relaxed mb-10 opacity-80 h-12">
                     {plan.description}
                 </p>
 
@@ -185,14 +185,14 @@ export default function OffersPage() {
                 <div className="flex justify-center mb-8">
                     <div className="flex -space-x-4 space-x-reverse">
                         {[1,2,3,4].map(i => (
-                            <div key={i} className="w-14 h-14 rounded-full border-4 border-[#0F172A] bg-slate-800 overflow-hidden">
+                            <div key={i} className="w-14 h-14 rounded-full border-4 border-[#1F3C64] bg-slate-800 overflow-hidden">
                                 <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="Expert" className="w-full h-full object-cover" />
                             </div>
                         ))}
                     </div>
                 </div>
                 <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">باقة تناسب <br /> احتياجك الخاص؟</h2>
-                <p className="text-[#94A3B8] text-xl font-medium max-w-2xl mx-auto mb-10">
+                <p className="text-[#E7F7F8] text-xl font-medium max-w-2xl mx-auto mb-10">
                     إذا كانت لديك متطلبات فريدة أو حجم عمل ضخم، يمكننا تفصيل باقة مخصصة تماماً لأهدافك.
                 </p>
                 <Link href="/contact" className="text-[#0BAFB4] font-black text-xl hover:underline underline-offset-8">
@@ -210,7 +210,7 @@ export default function OffersPage() {
                 <Star size={64} className="text-[#0BAFB4]" />
                 <Zap size={64} className="text-[#0BAFB4]" />
             </div>
-            <p className="mt-12 text-[#64748B] text-sm font-bold uppercase tracking-[0.4em]">Guaranteed Quality & Speed</p>
+            <p className="mt-12 text-[#E7F7F8] text-sm font-bold uppercase tracking-[0.4em]">Guaranteed Quality & Speed</p>
         </div>
       </section>
 

@@ -62,7 +62,7 @@ export default function ServiceDetailPage() {
 
   if (!service) {
     return (
-      <div className="min-h-screen bg-[#0F172A] flex items-center justify-center text-white">
+      <div className="min-h-screen bg-[#1F3C64] flex items-center justify-center text-white">
         <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">الخدمة غير موجودة</h1>
             <Link href="/services" className="text-[#0BAFB4] hover:underline">العودة لصفحة الخدمات</Link>
@@ -72,7 +72,7 @@ export default function ServiceDetailPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#0F172A] font-tajawal">
+    <main className="min-h-screen bg-[#1F3C64] font-tajawal">
       <Header />
 
       {/* ── Section Title & Navigation ── */}
@@ -95,10 +95,10 @@ export default function ServiceDetailPage() {
                     <span className="text-[#0BAFB4] text-xs font-black tracking-[0.5em] mb-4 block uppercase opacity-60">
                         Service Detail • {service.en}
                     </span>
-                    <h1 className="text-5xl md:text-7xl font-black text-[#F8FAFC] tracking-tighter mb-8 leading-none">
+                    <h1 className="text-5xl md:text-7xl font-black text-[#E7F7F8] tracking-tighter mb-8 leading-none">
                         {service.title}
                     </h1>
-                    <p className="text-xl md:text-2xl text-[#94A3B8] font-medium leading-relaxed mb-12">
+                    <p className="text-xl md:text-2xl text-[#E7F7F8] font-medium leading-relaxed mb-12">
                         {service.description}
                     </p>
                     
@@ -126,13 +126,13 @@ export default function ServiceDetailPage() {
                         fill
                         className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1F3C64] via-transparent to-transparent opacity-60" />
                     
                     {/* Floating Info Box */}
                     <div className="absolute bottom-8 right-8 left-8">
                         <div className="bg-[#1F3C64]/80 backdrop-blur-3xl p-8 rounded-3xl border border-white/10 flex items-center gap-6">
                             <div className="w-16 h-16 rounded-2xl bg-[#0BAFB4] flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#0BAFB4]/20">
-                                <service.icon className="w-8 h-8 text-[#0F172A]" />
+                                <service.icon className="w-8 h-8 text-[#1F3C64]" />
                             </div>
                             <div>
                                 <h4 className="text-white font-black text-lg mb-1">لماذا هذه الخدمة؟</h4>
@@ -150,8 +150,8 @@ export default function ServiceDetailPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-1">
-                    <h2 className="text-4xl font-black text-[#F8FAFC] tracking-tighter mb-6">ماذا ستحقق <br /> بمجرد البدء؟</h2>
-                    <p className="text-[#94A3B8] leading-relaxed">نهجنا المتكامل يضمن لعلامتك التجارية القيمة والاستدامة في سوق تنافسي للغاية.</p>
+                    <h2 className="text-4xl font-black text-[#E7F7F8] tracking-tighter mb-6">ماذا ستحقق <br /> بمجرد البدء؟</h2>
+                    <p className="text-[#E7F7F8] leading-relaxed">نهجنا المتكامل يضمن لعلامتك التجارية القيمة والاستدامة في سوق تنافسي للغاية.</p>
                 </div>
                 <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-8">
                     {service.benefits.map((benefit: string, idx: number) => (
@@ -168,7 +168,7 @@ export default function ServiceDetailPage() {
       {/* ── Deep Detail Section ── */}
       <section className="py-24 lg:py-40">
         <div className="max-w-4xl mx-auto px-6 text-center">
-            <h3 className="text-[#94A3B8] text-xl md:text-3xl font-medium leading-relaxed mb-16 italic">
+            <h3 className="text-[#E7F7F8] text-xl md:text-3xl font-medium leading-relaxed mb-16 italic">
                 "{service.details}"
             </h3>
             <Link 

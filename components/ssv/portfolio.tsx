@@ -6,6 +6,7 @@ import { Play, ArrowUpLeft } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
+import Link from 'next/link'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP)
@@ -139,6 +140,14 @@ export function Portfolio() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#E7F7F8]">
               مشاريع نفخر بها
             </h2>
+            <div className="mt-8">
+              <Link
+                href="/portfolio"
+                className="inline-block border border-[#0BAFB4] text-[#0BAFB4] px-8 py-3 rounded-full hover:bg-[#0BAFB4]/10 transition-colors font-semibold pointer-events-auto"
+              >
+                View Details
+              </Link>
+            </div>
           </div>
 
           {/* Filter Tabs */}
@@ -149,7 +158,7 @@ export function Portfolio() {
                 onClick={() => setActiveCategory(category)}
                 className={`px-5 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${activeCategory === category
                   ? 'bg-[#0BAFB4] text-[#E7F7F8]'
-                  : 'bg-[#1E293B] text-[#94A3B8] hover:text-[#E7F7F8] hover:bg-[#334155]'
+                  : 'bg-[#1F3C64] text-[#E7F7F8] hover:text-[#E7F7F8] hover:bg-[#1F3C64]'
                   }`}
               >
                 {category}
@@ -166,7 +175,7 @@ export function Portfolio() {
             key={project.title}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
-            className={`project-card portfolio-card group relative bg-[#1E293B] rounded-xl overflow-hidden cursor-pointer w-[80vw] md:w-[45vw] lg:w-[30vw] flex-shrink-0 shadow-2xl transition-all duration-700 ease-[0.16,1,0.3,1] ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-40 scale-[0.98] grayscale' : 'opacity-100 scale-100 grayscale-0'
+            className={`project-card portfolio-card group relative bg-[#1F3C64] rounded-xl overflow-hidden cursor-pointer w-[80vw] md:w-[45vw] lg:w-[30vw] flex-shrink-0 shadow-2xl transition-all duration-700 ease-[0.16,1,0.3,1] ${hoveredIndex !== null && hoveredIndex !== index ? 'opacity-40 scale-[0.98] grayscale' : 'opacity-100 scale-100 grayscale-0'
               }`}
           >
             <div className="relative aspect-[4/3] overflow-hidden">
@@ -189,9 +198,9 @@ export function Portfolio() {
                 <h3 className="font-bold text-[#E7F7F8] mb-1 group-hover:text-[#0BAFB4] transition-colors">
                   {project.title}
                 </h3>
-                <span className="text-sm text-[#94A3B8]">{project.category}</span>
+                <span className="text-sm text-[#E7F7F8]">{project.category}</span>
               </div>
-              <ArrowUpLeft className="w-5 h-5 text-[#94A3B8] group-hover:text-[#0BAFB4] transition-colors" />
+              <ArrowUpLeft className="w-5 h-5 text-[#E7F7F8] group-hover:text-[#0BAFB4] transition-colors" />
             </div>
           </div>
         ))}

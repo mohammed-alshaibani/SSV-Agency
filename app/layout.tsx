@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0F172A',
+  themeColor: '#1F3C64',
   width: 'device-width',
   initialScale: 1,
 }
@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl" className={`${tajawal.variable} ${manrope.variable} dark`}>
-      <body className="font-sans antialiased bg-[#0F172A] text-[#F8FAFC]">
+      <body className="font-sans antialiased bg-[#1F3C64] text-[#E7F7F8]">
         <SmoothScroll>
           <Preloader />
           <MouseInteraction />

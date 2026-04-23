@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
+import Link from 'next/link'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP)
@@ -148,10 +149,10 @@ export function Services() {
         <div className="stage-initial absolute inset-0 flex flex-col items-center justify-center z-40 px-6">
           <h2 className="text-[#E7F7F8] flex flex-col items-center justify-center gap-4 text-center">
             <span className="text-[#0BAFB4] text-xs font-black tracking-[0.8em] uppercase opacity-60 mb-2">خدماتنا</span>
-            <span dir="ltr" className="text-[12vw] md:text-[14vw] font-black leading-none tracking-tighter flex items-center justify-center gap-4 transition-all hover:tracking-widest duration-700 select-none drop-shadow-[0_0_80px_rgba(11,175,180,0.1)]">
+            <span dir="ltr" className="text-[12vw] md:text-[14vw] font-black leading-none tracking-tighter flex items-center justify-center transition-all hover:tracking-widest duration-700 select-none drop-shadow-[0_0_80px_rgba(11,175,180,0.1)]">
               SS<span className="text-[#0BAFB4]">V</span>
             </span>
-            <p className="text-xl md:text-2xl font-medium text-[#94A3B8] max-w-xl leading-relaxed">
+            <p className="text-xl md:text-2xl font-medium text-[#E7F7F8] max-w-xl leading-relaxed">
               نحن لا نقدم خدمات فقط، نحن نصنع تجارب رقمية متكاملة تضع علامتك في المقدمة.
             </p>
           </h2>
@@ -169,7 +170,7 @@ export function Services() {
                   <div className="quadrant-card group relative bg-white/[0.02] backdrop-blur-3xl p-8 rounded-[2.5rem] w-full max-w-[340px] transition-all duration-500 hover:bg-white/[0.05] pointer-events-auto">
                     <div className="absolute top-6 right-8 text-[#E7F7F8]/[0.12] text-7xl font-black select-none z-0">01</div>
                     <div className="relative z-10 pt-4">
-                      <h4 className="text-[#E2E8F0] text-xl md:text-2xl font-bold leading-tight mb-2">
+                      <h4 className="text-[#E7F7F8] text-xl md:text-2xl font-bold leading-tight mb-2">
                         {pillar.details[0].text}
                       </h4>
                       <div className="h-1 w-12 bg-[#0BAFB4]/30 rounded-full group-hover:w-24 transition-all duration-700" />
@@ -190,7 +191,7 @@ export function Services() {
                       {pillar.title}
                     </h3>
                   </div>
-                  <p className="relative z-10 text-[#94A3B8] text-lg md:text-xl font-medium leading-relaxed max-w-sm px-6 opacity-90 mt-8 pointer-events-auto">
+                  <p className="relative z-10 text-[#E7F7F8] text-lg md:text-xl font-medium leading-relaxed max-w-sm px-6 opacity-90 mt-8 pointer-events-auto">
                     {pillar.subtitle}
                   </p>
 
@@ -198,7 +199,7 @@ export function Services() {
                   <div className="hidden lg:block quadrant-card group relative bg-white/[0.02] backdrop-blur-3xl p-6 rounded-[2rem] mt-10 max-w-[280px] transition-all duration-500 hover:bg-white/[0.05] pointer-events-auto w-full">
                     <div className="absolute top-4 right-6 text-[#E7F7F8]/[0.12] text-5xl font-black select-none z-0">03</div>
                     <div className="relative z-10 pt-2 text-center">
-                      <h4 className="text-[#E2E8F0] text-lg font-bold leading-tight mb-2">
+                      <h4 className="text-[#E7F7F8] text-lg font-bold leading-tight mb-2">
                         {pillar.details[2].text}
                       </h4>
                       <div className="h-px w-10 bg-[#0BAFB4]/30 rounded-full mx-auto group-hover:w-20 transition-all duration-700" />
@@ -211,7 +212,7 @@ export function Services() {
                   <div className="quadrant-card group relative bg-white/[0.02] backdrop-blur-3xl p-8 rounded-[2.5rem] w-full max-w-[340px] transition-all duration-500 hover:bg-white/[0.05] pointer-events-auto">
                     <div className="absolute top-6 left-8 text-[#E7F7F8]/[0.12] text-7xl font-black select-none z-0">02</div>
                     <div className="relative z-10 pt-4 text-left">
-                      <h4 className="text-[#E2E8F0] text-xl md:text-2xl font-bold leading-tight mb-2">
+                      <h4 className="text-[#E7F7F8] text-xl md:text-2xl font-bold leading-tight mb-2">
                         {pillar.details[1].text}
                       </h4>
                       <div className="h-1 w-12 bg-[#0BAFB4]/30 rounded-full ml-auto group-hover:w-24 transition-all duration-700" />
@@ -232,6 +233,16 @@ export function Services() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* View Details Button */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-50 pointer-events-auto">
+          <Link
+            href="/services"
+            className="inline-block border border-[#0BAFB4] text-[#0BAFB4] px-8 py-3 rounded-full hover:bg-[#0BAFB4]/10 transition-colors font-semibold backdrop-blur-sm"
+          >
+            View Details
+          </Link>
         </div>
       </div>
     </section>

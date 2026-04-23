@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { Rocket, TrendingUp, Building2, Target } from 'lucide-react'
+import Link from 'next/link'
 
 const features = [
   {
@@ -50,10 +51,10 @@ export function About() {
               SSV = تخطيط + تنفيذ + قياس = <span className="text-[#0BAFB4]">نمو حقيقي</span>
             </h2>
             <div className="flex flex-col gap-8 max-w-4xl mx-auto">
-              <p className="text-[#94A3B8] text-xl md:text-2xl leading-relaxed font-medium opacity-80">
+              <p className="text-[#E7F7F8] text-xl md:text-2xl leading-relaxed font-medium opacity-80">
                 شركة SSV (Strategy, Support, Value) هي شركة متخصصة في تقديم حلول تسويقية متكاملة، تعمل كـ ذراع التسويق الداخلي للشركات، حيث لا تكتفي بوضع الاستراتيجيات فقط، بل تقوم بتنفيذها وقياس نتائجها لتحقيق نمو حقيقي ومستدام للأعمال.
               </p>
-              <p className="text-[#94A3B8] text-xl md:text-2xl leading-relaxed font-medium opacity-80">
+              <p className="text-[#E7F7F8] text-xl md:text-2xl leading-relaxed font-medium opacity-80">
                 تعتمد الشركة على منهجية واضحة تبدأ من فهم عميق للسوق والعملاء، ثم بناء استراتيجية تسويقية مخصصة، وتنفيذها بشكل عملي، مع متابعة الأداء وتحسين النتائج بشكل مستمر لضمان تحقيق أفضل عائد على الاستثمار.
               </p>
             </div>
@@ -74,9 +75,19 @@ export function About() {
                 <feature.icon className="w-8 h-8 text-[#0BAFB4] group-hover:text-[#1F3C64] transition-colors duration-500" />
               </div>
               <h3 className="text-2xl font-black text-[#E7F7F8] mb-4 tracking-tight">{feature.title}</h3>
-              <p className="text-[#94A3B8] leading-relaxed font-medium">{feature.description}</p>
+              <p className="text-[#E7F7F8] leading-relaxed font-medium">{feature.description}</p>
             </motion.div>
           ))}
+        </div>
+
+        {/* View Details Button */}
+        <div className="flex justify-center mt-16 relative z-50">
+          <Link
+            href="/about"
+            className="inline-block border border-[#0BAFB4] text-[#0BAFB4] px-8 py-3 rounded-full hover:bg-[#0BAFB4]/10 transition-colors font-semibold pointer-events-auto"
+          >
+            View Details
+          </Link>
         </div>
       </div>
     </section>

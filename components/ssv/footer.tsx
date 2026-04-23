@@ -44,7 +44,7 @@ export function Footer() {
   }
 
   return (
-    <footer ref={ref} className="bg-[#1F3C64] text-[#F8FAFC]">
+    <footer ref={ref} className="bg-[#1F3C64] text-[#E7F7F8]">
 
       {/* High-Contrast CTA Section */}
       <div className="relative overflow-hidden py-24 lg:py-40 border-t border-[#E7F7F8]/5">
@@ -85,7 +85,7 @@ export function Footer() {
             <Link href="/" className="flex items-center mb-8">
               <SSVLogo className="h-10 w-auto" />
             </Link>
-            <p className="text-[#94A3B8] text-lg leading-relaxed mb-10 max-w-sm">
+            <p className="text-[#E7F7F8] text-lg leading-relaxed mb-10 max-w-sm">
               اشترك في نشرتنا البريدية لتصلك أحدث الرؤى الإبداعية والحلول التقنية المبتكرة.
             </p>
 
@@ -95,7 +95,7 @@ export function Footer() {
                 placeholder="بريدك الإلكتروني"
                 disabled={subscribed}
                 required
-                className="w-full h-16 bg-[#1E293B] border border-[#E7F7F8]/10 rounded-2xl px-6 text-[#E7F7F8] outline-none focus:border-[#0BAFB4] transition-all group-hover:border-[#E7F7F8]/20 disabled:opacity-50 text-right"
+                className="w-full h-16 bg-[#1F3C64] border border-[#E7F7F8]/10 rounded-2xl px-6 text-[#E7F7F8] outline-none focus:border-[#0BAFB4] transition-all group-hover:border-[#E7F7F8]/20 disabled:opacity-50 text-right"
               />
               <button
                 type="submit"
@@ -121,7 +121,7 @@ export function Footer() {
             <ul className="space-y-4 text-right">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-[#94A3B8] hover:text-[#0BAFB4] transition-colors font-medium">
+                  <Link href={link.href} className="text-[#E7F7F8] hover:text-[#0BAFB4] transition-colors font-medium">
                     {link.label}
                   </Link>
                 </li>
@@ -134,7 +134,7 @@ export function Footer() {
             <ul className="space-y-4 text-right">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-[#94A3B8] hover:text-[#0BAFB4] transition-colors font-medium">
+                  <Link href={link.href} className="text-[#E7F7F8] hover:text-[#0BAFB4] transition-colors font-medium">
                     {link.label}
                   </Link>
                 </li>
@@ -146,7 +146,7 @@ export function Footer() {
             <h4 className="text-[#E7F7F8] font-black mb-8 uppercase tracking-widest text-sm text-right">تغدينا بصرياً</h4>
             <div className="flex gap-4 justify-end">
               {socialLinks.map((social) => (
-                <a key={social.label} href={social.href} className="w-10 h-10 rounded-xl bg-[#E7F7F8]/5 flex items-center justify-center text-[#94A3B8] hover:bg-[#0BAFB4] hover:text-[#1F3C64] transition-all">
+                <a key={social.label} href={social.href} className="w-10 h-10 rounded-xl bg-[#E7F7F8]/5 flex items-center justify-center text-[#E7F7F8] hover:bg-[#0BAFB4] hover:text-[#1F3C64] transition-all">
                   <social.icon className="w-5 h-5" />
                 </a>
               ))}
@@ -159,14 +159,14 @@ export function Footer() {
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="flex items-center gap-3">
               <MapPin className="w-4 h-4 text-[#0BAFB4]" />
-              <span className="text-[#94A3B8] text-sm font-medium">المملكة العربية السعودية، الرياض، العليا</span>
+              <span className="text-[#E7F7F8] text-sm font-medium">المملكة العربية السعودية، الرياض، العليا</span>
             </div>
             <div className="flex items-center gap-3">
               <Mail className="w-4 h-4 text-[#0BAFB4]" />
-              <span className="text-[#94A3B8] text-sm font-medium">hello@ssv.agency</span>
+              <span className="text-[#E7F7F8] text-sm font-medium">hello@ssv.agency</span>
             </div>
           </div>
-          <p className="text-xs text-[#94A3B8]/40 uppercase tracking-[0.2em]">
+          <p className="text-xs text-[#E7F7F8]/40 uppercase tracking-[0.2em]">
             © 2026 ssv agency. Crafted with Passion.
           </p>
         </div>

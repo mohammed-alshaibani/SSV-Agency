@@ -23,7 +23,7 @@ export function InfiniteScrollingLogos() {
         <span className="text-[#0BAFB4] text-sm font-bold tracking-wider mb-4 block uppercase leading-none font-sans">
           ثقة متبادلة
         </span>
-        <h2 className="text-3xl md:text-5xl font-black text-[#F8FAFC] font-sans">
+        <h2 className="text-3xl md:text-5xl font-black text-[#E7F7F8] font-sans">
           شركاؤنا الاستراتيجيون
         </h2>
       </div>

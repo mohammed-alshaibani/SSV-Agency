@@ -56,13 +56,13 @@ export function Contact() {
             className="space-y-10"
           >
             <div>
-              <span className="inline-block text-[#55D9DE] text-sm font-bold tracking-wider mb-4">
+              <span className="inline-block text-[#0BAFB4] text-sm font-bold tracking-wider mb-4">
                 تواصل معنا
               </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#F8FAFC] leading-tight mb-6 text-balance">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#E7F7F8] leading-tight mb-6 text-balance">
                 دعنا نصنع شيئاً مذهلاً معاً
               </h2>
-              <p className="text-[#94A3B8] text-lg leading-relaxed">
+              <p className="text-[#E7F7F8] text-lg leading-relaxed">
                 نحن هنا للإجابة على استفساراتك وتحويل رؤيتك إلى واقع ملموس. فريقنا جاهز للتواصل معك في أي وقت.
               </p>
             </div>
@@ -78,16 +78,16 @@ export function Contact() {
                     delay: 0.2 + index * 0.1,
                     ease: [0.25, 1, 0.5, 1],
                   }}
-                  className="flex items-center gap-5 p-4 bg-[#1E293B] rounded-xl group hover:bg-[#334155] transition-all duration-300 shadow-xl shadow-black/20 cursor-pointer"
+                  className="flex items-center gap-5 p-4 bg-[#1F3C64] rounded-xl group hover:bg-[#1F3C64] transition-all duration-300 shadow-xl shadow-black/20 cursor-pointer"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-[#1F3C64] flex items-center justify-center text-[#55D9DE] group-hover:bg-[#55D9DE] group-hover:text-[#1F3C64] transition-all duration-300">
+                  <div className="w-12 h-12 rounded-lg bg-[#1F3C64] flex items-center justify-center text-[#0BAFB4] group-hover:bg-[#0BAFB4] group-hover:text-[#1F3C64] transition-all duration-300">
                     <info.icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="block text-sm text-[#94A3B8] mb-1">
+                    <span className="block text-sm text-[#E7F7F8] mb-1">
                       {info.label}
                     </span>
-                    <span className="text-[#F8FAFC] font-bold" dir={info.dir}>
+                    <span className="text-[#E7F7F8] font-bold" dir={info.dir}>
                       {info.value}
                     </span>
                   </div>
@@ -101,16 +101,16 @@ export function Contact() {
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 1, 0.5, 1] }}
-            className="bg-[#1E293B] p-8 lg:p-10 rounded-xl shadow-2xl shadow-black/40"
+            className="bg-[#1F3C64] p-8 lg:p-10 rounded-xl shadow-2xl shadow-black/40"
           >
-            <h3 className="text-xl font-bold text-[#F8FAFC] mb-6">
+            <h3 className="text-xl font-bold text-[#E7F7F8] mb-6">
               أرسل لنا رسالة
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Name Field */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-[#94A3B8] mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-[#E7F7F8] mb-2">
                   الاسم الكامل
                 </label>
                 <input
@@ -119,14 +119,14 @@ export function Contact() {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full h-12 bg-[#1F3C64] rounded-lg px-4 text-[#F8FAFC] border border-[#334155] focus:border-[#55D9DE] transition-all focus:outline-none"
+                  className="w-full h-12 bg-[#1F3C64] rounded-lg px-4 text-[#E7F7F8] border border-[#1F3C64] focus:border-[#0BAFB4] transition-all focus:outline-none"
                   placeholder="أدخل اسمك"
                 />
               </div>
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-[#94A3B8] mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-[#E7F7F8] mb-2">
                   البريد الإلكتروني
                 </label>
                 <input
@@ -135,7 +135,7 @@ export function Contact() {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full h-12 bg-[#1F3C64] rounded-lg px-4 text-[#F8FAFC] border border-[#334155] focus:border-[#55D9DE] transition-all focus:outline-none"
+                  className="w-full h-12 bg-[#1F3C64] rounded-lg px-4 text-[#E7F7F8] border border-[#1F3C64] focus:border-[#0BAFB4] transition-all focus:outline-none"
                   placeholder="example@email.com"
                   dir="ltr"
                 />
@@ -143,7 +143,7 @@ export function Contact() {
 
               {/* Service Type Dropdown */}
               <div className="relative">
-                <label htmlFor="service" className="block text-sm font-medium text-[#94A3B8] mb-2">
+                <label htmlFor="service" className="block text-sm font-medium text-[#E7F7F8] mb-2">
                   نوع الخدمة
                 </label>
                 <select
@@ -151,21 +151,21 @@ export function Contact() {
                   required
                   value={formData.service}
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  className="w-full h-12 bg-[#1F3C64] rounded-lg px-4 text-[#F8FAFC] border border-[#334155] focus:border-[#55D9DE] transition-all appearance-none cursor-pointer focus:outline-none"
+                  className="w-full h-12 bg-[#1F3C64] rounded-lg px-4 text-[#E7F7F8] border border-[#1F3C64] focus:border-[#0BAFB4] transition-all appearance-none cursor-pointer focus:outline-none"
                 >
-                  <option value="" disabled className="bg-[#1E293B]">اختر الخدمة</option>
+                  <option value="" disabled className="bg-[#1F3C64]">اختر الخدمة</option>
                   {serviceOptions.map((option) => (
-                    <option key={option.value} value={option.value} className="bg-[#1E293B]">
+                    <option key={option.value} value={option.value} className="bg-[#1F3C64]">
                       {option.label}
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute left-4 bottom-3.5 pointer-events-none text-[#94A3B8] w-4 h-4" />
+                <ChevronDown className="absolute left-4 bottom-3.5 pointer-events-none text-[#E7F7F8] w-4 h-4" />
               </div>
 
               {/* Message Field */}
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-[#94A3B8] mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-[#E7F7F8] mb-2">
                   رسالتك
                 </label>
                 <textarea
@@ -174,7 +174,7 @@ export function Contact() {
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-[#1F3C64] rounded-lg px-4 py-3 text-[#F8FAFC] border border-[#334155] focus:border-[#55D9DE] transition-all resize-none focus:outline-none"
+                  className="w-full bg-[#1F3C64] rounded-lg px-4 py-3 text-[#E7F7F8] border border-[#1F3C64] focus:border-[#0BAFB4] transition-all resize-none focus:outline-none"
                   placeholder="اكتب رسالتك هنا..."
                 />
               </div>

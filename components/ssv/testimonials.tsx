@@ -41,7 +41,7 @@ export function Testimonials() {
                     <span className="text-[#0BAFB4] text-sm font-bold tracking-wider mb-4 block uppercase leading-none">
                         أراء العملاء
                     </span>
-                    <h2 className="text-3xl md:text-5xl font-black text-[#F8FAFC]">
+                    <h2 className="text-3xl md:text-5xl font-black text-[#E7F7F8]">
                         قصص نجاح شركائنا
                     </h2>
                 </motion.div>
@@ -53,7 +53,7 @@ export function Testimonials() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="bg-[#1E293B] p-8 rounded-2xl relative border border-white/5 hover:border-[#0BAFB4]/30 transition-all duration-300 group shadow-xl shadow-black/20"
+                            className="bg-[#1F3C64] p-8 rounded-2xl relative border border-white/5 hover:border-[#0BAFB4]/30 transition-all duration-300 group shadow-xl shadow-black/20"
                         >
                             <Quote className="absolute top-6 left-6 w-10 h-10 text-[#E7F7F8]/5 group-hover:text-[#0BAFB4]/10 transition-colors duration-500" />
 
@@ -63,12 +63,12 @@ export function Testimonials() {
                                 ))}
                             </div>
 
-                            <p className="text-[#94A3B8] text-lg leading-relaxed mb-8 italic">
+                            <p className="text-[#E7F7F8] text-lg leading-relaxed mb-8 italic">
                                 "{review.content}"
                             </p>
 
                             <div>
-                                <h4 className="text-[#F8FAFC] font-bold text-lg">{review.name}</h4>
+                                <h4 className="text-[#E7F7F8] font-bold text-lg">{review.name}</h4>
                                 <p className="text-[#0BAFB4] text-sm">{review.role}</p>
                             </div>
                         </motion.div>

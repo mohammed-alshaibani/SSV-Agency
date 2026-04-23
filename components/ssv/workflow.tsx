@@ -5,6 +5,7 @@ import { useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
+import Link from 'next/link'
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger, useGSAP)
@@ -162,22 +163,27 @@ export function Workflow() {
                                         </h3>
                                     </div>
 
-                                    <p className="text-[#94A3B8] text-xl lg:text-3xl leading-relaxed font-medium max-w-2xl opacity-90">
+                                    <p className="text-[#E7F7F8] text-xl lg:text-3xl leading-relaxed font-medium max-w-2xl opacity-90">
                                         {step.description}
                                     </p>
 
-                                    <div className="group flex items-center gap-6 mt-4 p-6 bg-white/[0.02] backdrop-blur-2xl rounded-3xl transition-all hover:bg-white/[0.05] cursor-pointer pointer-events-auto">
-                                        <div className="w-12 h-12 rounded-full bg-[#0BAFB4]/10 flex items-center justify-center">
-                                            <div className="w-2 h-2 rounded-full bg-[#0BAFB4] animate-ping" />
-                                        </div>
-                                        <span className="text-[#E7F7F8]/60 text-sm font-bold uppercase tracking-widest">تحميل الدليل كامل</span>
-                                    </div>
+
                                 </div>
 
                             </div>
                         </div>
                     ))}
                 </div>
+            </div>
+
+            {/* View Details Button */}
+            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-50 pointer-events-auto">
+                <Link
+                    href="/services"
+                    className="inline-block border border-[#0BAFB4] text-[#0BAFB4] px-8 py-3 rounded-full hover:bg-[#0BAFB4]/10 transition-colors font-semibold"
+                >
+                    View Details
+                </Link>
             </div>
         </section>
     )

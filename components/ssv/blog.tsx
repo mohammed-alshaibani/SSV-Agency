@@ -47,13 +47,13 @@ export function Blog() {
             <span className="inline-block text-[#0BAFB4] text-sm font-bold tracking-wider mb-4">
               المدونة
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#F8FAFC]">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#E7F7F8]">
               إلهام وأفكار
             </h2>
           </div>
           <a
             href="#"
-            className="hidden md:flex items-center gap-2 text-[#F8FAFC] font-medium hover:text-[#0BAFB4] transition-colors"
+            className="hidden md:flex items-center gap-2 text-[#E7F7F8] font-medium hover:text-[#0BAFB4] transition-colors"
           >
             جميع المقالات
             <ArrowUpLeft className="w-4 h-4" />
@@ -72,7 +72,7 @@ export function Blog() {
                 delay: index * 0.1,
                 ease: [0.25, 1, 0.5, 1],
               }}
-              className="group bg-[#1E293B] rounded-xl overflow-hidden cursor-pointer shadow-xl shadow-black/20"
+              className="group bg-[#1F3C64] rounded-xl overflow-hidden cursor-pointer shadow-xl shadow-black/20"
             >
               <div className="aspect-[16/10] overflow-hidden">
                 <Image
@@ -89,17 +89,17 @@ export function Blog() {
                   <span className="text-[#0BAFB4] text-xs font-bold tracking-wider">
                     {article.category}
                   </span>
-                  <span className="flex items-center gap-1 text-[#94A3B8] text-xs">
+                  <span className="flex items-center gap-1 text-[#E7F7F8] text-xs">
                     <Calendar className="w-3 h-3" />
                     {article.date}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#F8FAFC] mb-3 group-hover:text-[#0BAFB4] transition-colors duration-300">
+                <h3 className="text-xl font-bold text-[#E7F7F8] mb-3 group-hover:text-[#0BAFB4] transition-colors duration-300">
                   {article.title}
                 </h3>
 
-                <p className="text-[#94A3B8] text-sm leading-relaxed line-clamp-2">
+                <p className="text-[#E7F7F8] text-sm leading-relaxed line-clamp-2">
                   {article.excerpt}
                 </p>
               </div>
@@ -110,7 +110,7 @@ export function Blog() {
         {/* Mobile "View All" Link */}
         <a
           href="#"
-          className="md:hidden flex items-center justify-center gap-2 text-[#F8FAFC] font-medium mt-8 hover:text-[#0BAFB4] transition-colors"
+          className="md:hidden flex items-center justify-center gap-2 text-[#E7F7F8] font-medium mt-8 hover:text-[#0BAFB4] transition-colors"
         >
           جميع المقالات
           <ArrowUpLeft className="w-4 h-4" />

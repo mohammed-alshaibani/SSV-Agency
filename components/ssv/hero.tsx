@@ -117,18 +117,22 @@ export function Hero() {
           </Magnetic>
 
           <Magnetic distance={0.2}>
-            <motion.button
-              whileHover={{ scale: 1.05, backgroundColor: 'rgba(231, 247, 248, 0.05)' }}
-              whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-6 text-[#E7F7F8] font-black px-12 py-6 rounded-2xl border border-[#E7F7F8]/30 backdrop-blur-md transition-all h-full"
-            >
-              <div className="w-14 h-14 rounded-full bg-[#E7F7F8]/10 flex items-center justify-center group-hover:bg-[#0BAFB4] transition-colors duration-700">
-                <Play className="w-5 h-5 text-[#E7F7F8] fill-[#E7F7F8] group-hover:text-[#1F3C64] group-hover:fill-[#1F3C64] mr-[-2px]" />
-              </div>
-              <span>شاهد أعمالنا</span>
-            </motion.button>
+            <Link href="/portfolio">
+              <motion.button
+                whileHover={{ scale: 1.05, backgroundColor: 'rgba(231, 247, 248, 0.05)' }}
+                whileTap={{ scale: 0.95 }}
+                className="group flex items-center gap-6 text-[#E7F7F8] font-black px-12 py-6 rounded-2xl border border-[#E7F7F8]/30 backdrop-blur-md transition-all h-full"
+              >
+                <div className="w-14 h-14 rounded-full bg-[#E7F7F8]/10 flex items-center justify-center group-hover:bg-[#0BAFB4] transition-colors duration-700">
+                  <Play className="w-5 h-5 text-[#E7F7F8] fill-[#E7F7F8] group-hover:text-[#1F3C64] group-hover:fill-[#1F3C64] mr-[-2px]" />
+                </div>
+                <span>شاهد أعمالنا</span>
+              </motion.button>
+            </Link>
           </Magnetic>
         </motion.div>
+
+
       </motion.div>
 
       {/* Scroll Indicator */}

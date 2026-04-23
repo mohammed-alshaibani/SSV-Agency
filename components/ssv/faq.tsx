@@ -41,13 +41,13 @@ export function FAQ() {
           <span className="inline-block text-[#0BAFB4] text-sm font-bold tracking-wider mb-4">
             الأسئلة الشائعة
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#F8FAFC]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#E7F7F8]">
             إجابات على تساؤلاتك
           </h2>
         </motion.div>
 
         {/* FAQ List - Swiss Clean Style with Tonal Depth */}
-        <div className="bg-[#1E293B] rounded-xl overflow-hidden shadow-2xl shadow-black/40">
+        <div className="bg-[#1F3C64] rounded-xl overflow-hidden shadow-2xl shadow-black/40">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index
             const isLast = index === faqs.length - 1
@@ -68,11 +68,11 @@ export function FAQ() {
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="w-full p-6 flex justify-between items-center gap-4 text-right hover:bg-white/5 transition-colors"
                 >
-                  <h4 className={`font-bold text-lg transition-colors duration-300 ${isOpen ? 'text-[#0BAFB4]' : 'text-[#F8FAFC]'
+                  <h4 className={`font-bold text-lg transition-colors duration-300 ${isOpen ? 'text-[#0BAFB4]' : 'text-[#E7F7F8]'
                     }`}>
                     {faq.question}
                   </h4>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${isOpen ? 'bg-[#0BAFB4] text-[#E7F7F8]' : 'bg-[#1F3C64] text-[#94A3B8]'
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${isOpen ? 'bg-[#0BAFB4] text-[#E7F7F8]' : 'bg-[#1F3C64] text-[#E7F7F8]'
                     }`}>
                     {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </div>
@@ -87,7 +87,7 @@ export function FAQ() {
                       transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="px-6 pb-6 text-[#94A3B8] leading-relaxed">
+                      <p className="px-6 pb-6 text-[#E7F7F8] leading-relaxed">
                         {faq.answer}
                       </p>
                     </motion.div>

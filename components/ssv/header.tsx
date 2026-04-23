@@ -21,7 +21,7 @@ const navLinks = [
   { href: '#testimonials', label: 'الآراء' },
   { href: '#partners', label: 'شركاؤنا' },
   { href: '/offers', label: 'العروض' },
-  { href: '#contact', label: 'تواصل بنا' },
+  { href: '/contact', label: 'تواصل بنا' },
 ]
 
 export function Header() {
@@ -76,7 +76,7 @@ export function Header() {
                   onMouseLeave={() => link.dropdown && setIsServicesOpen(false)}
                 >
                   {link.dropdown ? (
-                    <div className="flex items-center gap-1 cursor-pointer py-4 text-sm font-medium transition-colors duration-300 hover:text-[#0BAFB4] text-[#F8FAFC]">
+                    <div className="flex items-center gap-1 cursor-pointer py-4 text-sm font-medium transition-colors duration-300 hover:text-[#0BAFB4] text-[#E7F7F8]">
                       {link.label}
                       <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
 
@@ -86,7 +86,7 @@ export function Header() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 10 }}
-                            className="absolute top-full left-0 w-64 bg-[#1E293B]/90 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl"
+                            className="absolute top-full left-0 w-64 bg-[#1F3C64]/90 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl"
                           >
                             <div className="flex flex-col gap-2">
                               {link.dropdown.map((item) => (
@@ -107,7 +107,7 @@ export function Header() {
                     <a
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href!)}
-                      className="text-sm font-medium transition-colors duration-300 hover:text-[#0BAFB4] text-[#F8FAFC]"
+                      className="text-sm font-medium transition-colors duration-300 hover:text-[#0BAFB4] text-[#E7F7F8]"
                     >
                       {link.label}
                     </a>
@@ -130,7 +130,7 @@ export function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 transition-colors text-[#F8FAFC]"
+              className="lg:hidden p-2 transition-colors text-[#E7F7F8]"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -155,7 +155,7 @@ export function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
-              className="absolute top-0 left-0 w-80 h-full bg-[#1E293B] shadow-2xl"
+              className="absolute top-0 left-0 w-80 h-full bg-[#1F3C64] shadow-2xl"
             >
               <div className="p-6 pt-24 text-right">
                 <nav className="flex flex-col gap-4">
@@ -171,7 +171,7 @@ export function Header() {
                               key={item.href}
                               href={item.href}
                               onClick={() => setIsMobileMenuOpen(false)}
-                              className="text-base font-medium text-[#F8FAFC]/80 hover:text-[#0BAFB4] transition-colors py-2 pr-6 border-r border-white/5"
+                              className="text-base font-medium text-[#E7F7F8]/80 hover:text-[#0BAFB4] transition-colors py-2 pr-6 border-r border-white/5"
                             >
                               {item.label}
                             </Link>
@@ -184,7 +184,7 @@ export function Header() {
                             handleNavClick(e, link.href!)
                             setIsMobileMenuOpen(false)
                           }}
-                          className="text-lg font-medium text-[#F8FAFC] hover:text-[#0BAFB4] transition-colors py-2 border-b border-white/5 block"
+                          className="text-lg font-medium text-[#E7F7F8] hover:text-[#0BAFB4] transition-colors py-2 border-b border-white/5 block"
                         >
                           {link.label}
                         </a>

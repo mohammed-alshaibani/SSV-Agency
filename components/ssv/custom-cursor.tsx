@@ -62,7 +62,7 @@ export function CustomCursor() {
                         initial={{ scale: 0 }}
                         animate={{
                             scale: cursorType === 'hover' ? 4 : cursorType === 'view' ? 8 : 1,
-                            backgroundColor: cursorType === 'view' ? '#0BAFB4' : '#F8FAFC',
+                            backgroundColor: cursorType === 'view' ? '#0BAFB4' : '#E7F7F8',
                             opacity: cursorType === 'hover' ? 0.3 : 1
                         }}
                         className="w-6 h-6 rounded-full flex items-center justify-center overflow-hidden"

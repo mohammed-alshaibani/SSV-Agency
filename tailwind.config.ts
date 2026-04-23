@@ -11,9 +11,9 @@ const config: Config = {
             colors: {
                 dark: {
                     bg: "#1F3C64",
-                    surface: "#2A4B7C",
+                    surface: "#1F3C64",
                     text: "#E7F7F8",
-                    muted: "#94A3B8",
+                    muted: "#E7F7F8",
                 },
                 brand: {
                     primary: "#1F3C64",

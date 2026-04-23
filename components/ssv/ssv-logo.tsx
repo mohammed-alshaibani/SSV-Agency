@@ -17,7 +17,7 @@ export function SSVLogo({ className = "" }: SSVLogoProps) {
       <img
         src="/LogoCutting.png"
         alt="SSV Logo"
-        className="h-full w-auto object-contain brightness-110 drop-shadow-[0_0_20px_rgba(11,175,180,0.3)]"
+        className="h-full w-auto object-contain brightness-0 invert drop-shadow-[0_0_20px_rgba(231,247,248,0.2)]"
       />
     </motion.div>
   )

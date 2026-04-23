@@ -49,7 +49,7 @@ export default function ProjectDetailPage() {
   const project = (projectsMap as any)[id] || Object.values(projectsMap)[0] // Default to first for demo
 
   return (
-    <main className="min-h-screen bg-[#0F172A] font-tajawal">
+    <main className="min-h-screen bg-[#1F3C64] font-tajawal">
       <Header />
 
       {/* ── Project Hero ── */}
@@ -69,23 +69,23 @@ export default function ProjectDetailPage() {
                 transition={{ duration: 0.8 }}
                 className="mb-16"
             >
-                <h1 className="text-5xl md:text-8xl font-black text-[#F8FAFC] tracking-tighter mb-6 leading-none">
+                <h1 className="text-5xl md:text-8xl font-black text-[#E7F7F8] tracking-tighter mb-6 leading-none">
                     {project.title}
                 </h1>
                 <div className="flex flex-wrap gap-6 items-center border-t border-white/5 pt-8 mt-12">
                      <div className="flex items-center gap-3">
                         <User className="w-5 h-5 text-[#0BAFB4]" />
-                        <span className="text-[#94A3B8] font-bold">العميل:</span>
+                        <span className="text-[#E7F7F8] font-bold">العميل:</span>
                         <span className="text-[#E7F7F8]">{project.client}</span>
                      </div>
                      <div className="flex items-center gap-3">
                         <Layers className="w-5 h-5 text-[#0BAFB4]" />
-                        <span className="text-[#94A3B8] font-bold">الخدمة:</span>
+                        <span className="text-[#E7F7F8] font-bold">الخدمة:</span>
                         <span className="text-[#E7F7F8]">{project.service}</span>
                      </div>
                      <div className="flex items-center gap-3">
                         <Calendar className="w-5 h-5 text-[#0BAFB4]" />
-                        <span className="text-[#94A3B8] font-bold">التاريخ:</span>
+                        <span className="text-[#E7F7F8] font-bold">التاريخ:</span>
                         <span className="text-[#E7F7F8]">{project.date}</span>
                      </div>
                 </div>
@@ -103,9 +103,9 @@ export default function ProjectDetailPage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-[3s]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent opacity-40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1F3C64] via-transparent opacity-40" />
                 
-                <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-[#0BAFB4] text-[#0F172A] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-2xl shadow-[#0BAFB4]/30">
+                <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-[#0BAFB4] text-[#1F3C64] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-2xl shadow-[#0BAFB4]/30">
                     <ExternalLink size={32} strokeWidth={2.5} />
                 </button>
             </motion.div>
@@ -124,8 +124,8 @@ export default function ProjectDetailPage() {
 
                 <div className="lg:col-span-8 space-y-20">
                     <div className="bg-white/[0.02] border border-white/5 p-12 rounded-[2.5rem]">
-                        <h4 className="text-[#F8FAFC] text-3xl font-black mb-6">التحدي</h4>
-                        <p className="text-[#94A3B8] text-lg leading-relaxed">{project.challenge}</p>
+                        <h4 className="text-[#E7F7F8] text-3xl font-black mb-6">التحدي</h4>
+                        <p className="text-[#E7F7F8] text-lg leading-relaxed">{project.challenge}</p>
                     </div>
 
                     <div className="bg-[#1F3C64]/30 border border-[#0BAFB4]/10 p-12 rounded-[2.5rem]">
@@ -148,10 +148,10 @@ export default function ProjectDetailPage() {
       {/* ── Next Project CTA ── */}
       <section className="py-24 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 text-center">
-            <span className="text-[#64748B] text-sm font-bold uppercase mb-4 block">مشروع آخر</span>
+            <span className="text-[#E7F7F8] text-sm font-bold uppercase mb-4 block">مشروع آخر</span>
             <Link 
                 href="/portfolio/4" 
-                className="group inline-flex items-center gap-6 text-2xl md:text-5xl font-black text-[#F8FAFC] hover:text-[#0BAFB4] transition-colors"
+                className="group inline-flex items-center gap-6 text-2xl md:text-5xl font-black text-[#E7F7F8] hover:text-[#0BAFB4] transition-colors"
             >
                  عرض المشروع التالي
                  <ArrowLeft className="w-10 h-10 group-hover:-translate-x-4 transition-transform" />

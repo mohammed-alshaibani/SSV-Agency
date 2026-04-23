@@ -11,10 +11,10 @@
   --accent: #0BAFB4;
 
   /* Dark Mode (unified) */
-  --dark-bg: #0F172A;
-  --dark-surface: #1E293B;
-  --dark-text: #F8FAFC;
-  --dark-muted: #94A3B8;
+  --dark-bg: #1F3C64;
+  --dark-surface: #1F3C64;
+  --dark-text: #E7F7F8;
+  --dark-muted: #E7F7F8;
 
   /* Radius */
   --radius: 0.5rem;
@@ -44,29 +44,29 @@
 
 /* Swiss Grid Border Utilities */
 .swiss-border {
-  border-color: #E2E8F0;
+  border-color: #E7F7F8;
 }
 
 .swiss-border-dark {
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(231, 247, 248, 0.1);
 }
 
 /* Video Hero Overlay */
 .hero-overlay {
   background: linear-gradient(to bottom,
-      rgba(15, 23, 42, 0.4) 0%,
-      rgba(15, 23, 42, 0.6) 50%,
-      rgba(15, 23, 42, 0.9) 100%);
+      rgba(31, 60, 100, 0.4) 0%,
+      rgba(31, 60, 100, 0.6) 50%,
+      rgba(31, 60, 100, 0.9) 100%);
 }
 
 /* Glass Effect for Header */
 .glass-dark {
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(31, 60, 100, 0.8);
   backdrop-filter: blur(12px);
 }
 
 .glass-light {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(231, 247, 248, 0.95);
   backdrop-filter: blur(12px);
 }
 
@@ -81,7 +81,7 @@
 }
 
 .swiss-card:hover {
-  background-color: #1E293B;
+  background-color: #1F3C64;
 }
 
 /* Accent Button */
@@ -117,7 +117,7 @@
   right: 1rem;
   pointer-events: none;
   transition: all 0.2s ease;
-  color: #64748B;
+  color: #E7F7F8;
 }
 
 /* Infinite scroll for marquee */

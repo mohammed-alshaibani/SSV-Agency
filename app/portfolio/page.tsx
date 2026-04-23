@@ -87,7 +87,7 @@ export default function PortfolioPage() {
     : projects.filter(p => p.category === activeCategory)
 
   return (
-    <main className="min-h-screen bg-[#0F172A] font-tajawal">
+    <main className="min-h-screen bg-[#1F3C64] font-tajawal">
       <Header />
 
       {/* ── Page Hero ── */}
@@ -105,10 +105,10 @@ export default function PortfolioPage() {
             <span className="text-[#0BAFB4] text-sm font-black tracking-[0.5em] uppercase mb-4 block">
               Portfolio
             </span>
-            <h1 className="text-5xl md:text-8xl font-black text-[#F8FAFC] tracking-tighter mb-8 leading-none">
+            <h1 className="text-5xl md:text-8xl font-black text-[#E7F7F8] tracking-tighter mb-8 leading-none">
               أعمالنا.. تجسيد <br /> لقصص <span className="text-[#0BAFB4]">النجاح</span>
             </h1>
-            <p className="text-lg md:text-2xl text-[#94A3B8] max-w-3xl mx-auto font-medium leading-relaxed">
+            <p className="text-lg md:text-2xl text-[#E7F7F8] max-w-3xl mx-auto font-medium leading-relaxed">
               نحن لا نصنع تصاميم فقط، نحن نبني هويات رقمية تترك أثراً عابراً للزمان والمكان، عبر مزيج من الإبداع والذكاء التسويقي.
             </p>
           </motion.div>
@@ -116,7 +116,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* ── Filter & View Toggle Section ── */}
-      <section className="sticky top-20 z-40 py-6 bg-[#0F172A]/80 backdrop-blur-xl border-y border-white/5 shadow-xl shadow-black/20">
+      <section className="sticky top-20 z-40 py-6 bg-[#1F3C64]/80 backdrop-blur-xl border-y border-white/5 shadow-xl shadow-black/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           
           {/* Navigation Categories */}
@@ -128,7 +128,7 @@ export default function PortfolioPage() {
                 className={`px-6 py-2.5 text-sm font-bold rounded-full transition-all duration-500 whitespace-nowrap ${
                   activeCategory === category
                     ? 'bg-[#0BAFB4] text-white shadow-[0_10px_20px_rgba(11,175,180,0.3)] scale-105'
-                    : 'text-[#94A3B8] hover:text-white hover:bg-white/5'
+                    : 'text-[#E7F7F8] hover:text-white hover:bg-white/5'
                 }`}
               >
                 {category}
@@ -140,13 +140,13 @@ export default function PortfolioPage() {
           <div className="hidden md:flex items-center gap-4 bg-white/5 p-1.5 rounded-2xl border border-white/5">
             <button 
               onClick={() => setViewMode('grid')}
-              className={`p-2.5 rounded-xl transition-all duration-300 ${viewMode === 'grid' ? 'bg-[#0BAFB4] text-white' : 'text-[#64748B] hover:text-[#94A3B8]'}`}
+              className={`p-2.5 rounded-xl transition-all duration-300 ${viewMode === 'grid' ? 'bg-[#0BAFB4] text-white' : 'text-[#E7F7F8] hover:text-[#E7F7F8]'}`}
             >
               <LayoutGrid size={20} strokeWidth={2.5} />
             </button>
             <button 
               onClick={() => setViewMode('list')}
-              className={`p-2.5 rounded-xl transition-all duration-300 ${viewMode === 'list' ? 'bg-[#0BAFB4] text-white' : 'text-[#64748B] hover:text-[#94A3B8]'}`}
+              className={`p-2.5 rounded-xl transition-all duration-300 ${viewMode === 'list' ? 'bg-[#0BAFB4] text-white' : 'text-[#E7F7F8] hover:text-[#E7F7F8]'}`}
             >
               <List size={20} strokeWidth={2.5} />
             </button>
@@ -211,7 +211,7 @@ export default function PortfolioPage() {
                           </span>
                           <div className="h-px flex-grow bg-white/[0.05]" />
                         </div>
-                        <h3 className="text-2xl md:text-3xl font-black text-[#F8FAFC] tracking-tighter mb-4 group-hover:text-[#0BAFB4] transition-colors duration-500">
+                        <h3 className="text-2xl md:text-3xl font-black text-[#E7F7F8] tracking-tighter mb-4 group-hover:text-[#0BAFB4] transition-colors duration-500">
                           {project.title}
                         </h3>
                       </div>
@@ -219,7 +219,7 @@ export default function PortfolioPage() {
                       <div className="flex items-center justify-between mt-4">
                         <div className="flex gap-2">
                           {project.tags.map(tag => (
-                            <span key={tag} className="text-[#64748B] text-xs font-semibold">{tag} •</span>
+                            <span key={tag} className="text-[#E7F7F8] text-xs font-semibold">{tag} •</span>
                           ))}
                         </div>
                         <span className="text-[#0BAFB4] group-hover:translate-x-[-8px] transition-transform duration-500 opacity-0 group-hover:opacity-100 font-black text-sm">التفاصيل</span>

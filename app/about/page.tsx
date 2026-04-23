@@ -40,13 +40,13 @@ const stats = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#0F172A] font-tajawal">
+    <main className="min-h-screen bg-[#1F3C64] font-tajawal">
       <Header />
 
       {/* ── Page Hero ── */}
       <section className="relative pt-40 pb-24 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vw] bg-[radial-gradient(#0BAFB4_1px,transparent_1px)] [background-size:60px_60px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vw] bg-[radial-gradient(#0BAFB4_1px,transparent_1px)] [background-size:60px_60px]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
@@ -57,21 +57,21 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
             >
               <span className="text-[#0BAFB4] text-xs font-black tracking-[0.5em] mb-4 block">
-                  Who We Are
+                Who We Are
               </span>
-              <h1 className="text-5xl md:text-8xl font-black text-[#F8FAFC] tracking-tighter mb-8 leading-[1.1]">
+              <h1 className="text-5xl md:text-8xl font-black text-[#E7F7F8] tracking-tighter mb-8 leading-[1.1]">
                 نحن لسنا مجرد وكالة.. <br /> نحن <span className="text-[#0BAFB4]">شريكك في النمو</span>
               </h1>
-              <p className="text-xl md:text-2xl text-[#94A3B8] font-medium leading-relaxed mb-10">
+              <p className="text-xl md:text-2xl text-[#E7F7F8] font-medium leading-relaxed mb-10">
                 في SSV، نؤمن أن التسويق ليس مجرد إعلانات، بل هو فن صناعة القيمة وبناء الروابط المستدامة بين العلامة التجارية وجمهورها.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-8 py-8 border-t border-white/5">
                 {stats.map((stat, i) => (
-                    <div key={i}>
-                        <div className="text-4xl font-black text-[#0BAFB4] mb-1">{stat.value}</div>
-                        <div className="text-[#94A3B8] text-sm font-bold uppercase tracking-wider">{stat.label}</div>
-                    </div>
+                  <div key={i}>
+                    <div className="text-4xl font-black text-[#0BAFB4] mb-1">{stat.value}</div>
+                    <div className="text-[#E7F7F8] text-sm font-bold uppercase tracking-wider">{stat.label}</div>
+                  </div>
                 ))}
               </div>
             </motion.div>
@@ -82,8 +82,8 @@ export default function AboutPage() {
               transition={{ duration: 1 }}
               className="relative aspect-square rounded-[3.5rem] overflow-hidden group"
             >
-              <Image 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070" 
+              <Image
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070"
                 alt="SSV Team"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-[3s]"
@@ -97,74 +97,70 @@ export default function AboutPage() {
       {/* ── Mission & Vision ── */}
       <section className="py-24 lg:py-40 bg-[#1F3C64]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div className="p-12 rounded-[3rem] bg-white/5 border border-white/10 relative overflow-hidden group">
-                    <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#0BAFB4]/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <Target className="w-16 h-16 text-[#0BAFB4] mb-8" />
-                    <h3 className="text-3xl font-black text-white mb-6">رؤيتنا</h3>
-                    <p className="text-[#94A3B8] text-xl leading-relaxed font-medium">
-                        أن نكون الشريك التقني والإبداعي الأول في المنطقة، مساهمين في تحويل الشركات المحلية إلى علامات تجارية عالمية عبر الحلول الرقمية المبتكرة.
-                    </p>
-                </div>
-
-                <div className="p-12 rounded-[3rem] bg-white/5 border border-white/10 relative overflow-hidden group">
-                    <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#0BAFB4]/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <Lightbulb className="w-16 h-16 text-[#0BAFB4] mb-8" />
-                    <h3 className="text-3xl font-black text-white mb-6">رسالتنا</h3>
-                    <p className="text-[#94A3B8] text-xl leading-relaxed font-medium">
-                        تمكين رواد الأعمال والشركات من الوصول إلى جمهورهم بذكاء وإبداع، عبر دمج الخبرة التسويقية العمياء بالتقنيات الحديثة لتحقيق نمو مستدام.
-                    </p>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div className="p-12 rounded-[3rem] bg-white/5 border border-white/10 relative overflow-hidden group">
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#0BAFB4]/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <Target className="w-16 h-16 text-[#0BAFB4] mb-8" />
+              <h3 className="text-3xl font-black text-white mb-6">رؤيتنا</h3>
+              <p className="text-[#E7F7F8] text-xl leading-relaxed font-medium">
+                أن نكون الشريك التقني والإبداعي الأول في المنطقة، مساهمين في تحويل الشركات المحلية إلى علامات تجارية عالمية عبر الحلول الرقمية المبتكرة.
+              </p>
             </div>
+
+            <div className="p-12 rounded-[3rem] bg-white/5 border border-white/10 relative overflow-hidden group">
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#0BAFB4]/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <Lightbulb className="w-16 h-16 text-[#0BAFB4] mb-8" />
+              <h3 className="text-3xl font-black text-white mb-6">رسالتنا</h3>
+              <p className="text-[#E7F7F8] text-xl leading-relaxed font-medium">
+                تمكين رواد الأعمال والشركات من الوصول إلى جمهورهم بذكاء وإبداع، عبر دمج الخبرة التسويقية العمياء بالتقنيات الحديثة لتحقيق نمو مستدام.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── Values Grid ── */}
       <section className="py-24 lg:py-40">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <span className="text-[#0BAFB4] text-xs font-black tracking-[0.5em] mb-4 block uppercase opacity-60">Core Values</span>
-            <h2 className="text-4xl md:text-7xl font-black text-[#F8FAFC] tracking-tighter mb-20 leading-none">
-                المبادئ التي <br /> <span className="text-[#0BAFB4]">تحركنا</span>
-            </h2>
+          <span className="text-[#0BAFB4] text-xs font-black tracking-[0.5em] mb-4 block uppercase opacity-60">Core Values</span>
+          <h2 className="text-4xl md:text-7xl font-black text-[#E7F7F8] tracking-tighter mb-20 leading-none">
+            المبادئ التي <br /> <span className="text-[#0BAFB4]">تحركنا</span>
+          </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-right">
-                {values.map((v, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.1 }}
-                        className="p-8 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-all group"
-                    >
-                        <v.icon className="w-12 h-12 text-[#0BAFB4] mb-8 group-hover:scale-110 transition-transform" />
-                        <h4 className="text-[#E7F7F8] text-2xl font-black mb-4">{v.title}</h4>
-                        <p className="text-[#94A3B8] leading-relaxed font-medium">{v.description}</p>
-                    </motion.div>
-                ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-right">
+            {values.map((v, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="p-8 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-all group"
+              >
+                <v.icon className="w-12 h-12 text-[#0BAFB4] mb-8 group-hover:scale-110 transition-transform" />
+                <h4 className="text-[#E7F7F8] text-2xl font-black mb-4">{v.title}</h4>
+                <p className="text-[#E7F7F8] leading-relaxed font-medium">{v.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ── Culture Intro ── */}
       <section className="py-24 lg:py-40 relative overflow-hidden">
-         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="bg-white/5 p-16 md:p-24 rounded-[4rem] text-center relative overflow-hidden border border-white/5">
-                <div className="relative z-10">
-                    <h2 className="text-4xl md:text-7xl font-black text-white mb-10 tracking-tighter">هل أنت مستعد <br /> للوصول للقمة؟</h2>
-                    <p className="text-[#94A3B8] text-xl md:text-2xl font-medium max-w-3xl mx-auto mb-12">
-                        فريقنا لا يهدأ، نعمل باستمرار لنكشف لك عن فرص جديدة للتألق في عالم رقمي لا يتوقف عن التغير.
-                    </p>
-                    <Link 
-                        href="/contact"
-                        className="inline-flex items-center gap-4 bg-[#0BAFB4] text-white px-12 py-6 rounded-2xl text-xl font-black shadow-2xl hover:scale-105 transition-all"
-                    >
-                        ابدأ رحلتك معنا
-                        <ArrowRight className="w-6 h-6 -rotate-45" />
-                    </Link>
-                </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="bg-white/5 p-16 md:p-24 rounded-[4rem] text-center relative overflow-hidden border border-white/5">
+            <div className="relative z-10">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-4 bg-[#0BAFB4] text-white px-12 py-6 rounded-2xl text-xl font-black shadow-2xl hover:scale-105 transition-all"
+              >
+                ابدأ رحلتك معنا
+                <ArrowRight className="w-6 h-6 -rotate-45" />
+              </Link>
             </div>
-         </div>
+          </div>
+        </div>
       </section>
 
       <Footer />
