@@ -18,64 +18,56 @@ const projects = [
     title: 'موسم الرياض - المحتوى الرقمي',
     category: 'التسويق الرقمي',
     image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070',
-    tags: ['سوشيال ميديا', 'حملات ممولة'],
-    size: 'large'
+    tags: ['سوشيال ميديا', 'حملات ممولة']
   },
   {
     id: 2,
     title: 'تطبيق مالي - فيديو ترويجي',
     category: 'إنتاج الفيديو',
     image: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2000',
-    tags: ['موشن جرافيك', '3D'],
-    size: 'small'
+    tags: ['موشن جرافيك', '3D']
   },
   {
     id: 3,
     title: 'علامة سدير - هوية بصرية',
     category: 'الهوية البصرية',
     image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2071',
-    tags: ['براندينج', 'دليل الهوية'],
-    size: 'small'
+    tags: ['براندينج', 'دليل الهوية']
   },
   {
     id: 4,
     title: 'منصة عقار - تجربة المستخدم',
     category: 'تصميم المواقع',
     image: 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=2062',
-    tags: ['UI/UX', 'تطوير ويب'],
-    size: 'large'
+    tags: ['UI/UX', 'تطوير ويب']
   },
   {
     id: 5,
     title: 'حملة إيراد - استراتيجية نمو',
     category: 'التسويق الرقمي',
     image: 'https://images.unsplash.com/photo-1551817958-d9d86fb29431?q=80&w=2070',
-    tags: ['SEO', 'ADS'],
-    size: 'small'
+    tags: ['SEO', 'ADS']
   },
   {
     id: 6,
     title: 'فندق نارسيس - جولة افتراضية',
     category: 'إنتاج الفيديو',
     image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070',
-    tags: ['تصوير سينمائي', 'درون'],
-    size: 'small'
+    tags: ['تصوير سينمائي', 'درون']
   },
   {
     id: 7,
     title: 'مجمع روشن - هوية المكان',
     category: 'الهوية البصرية',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069',
-    tags: ['تصميم بيئي', 'لافتات'],
-    size: 'large'
+    tags: ['تصميم بيئي', 'لافتات']
   },
   {
     id: 8,
     title: 'متجر سلة - تطوير الواجهة',
     category: 'تصميم المواقع',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2026',
-    tags: ['E-commerce', 'Next.js'],
-    size: 'small'
+    tags: ['E-commerce', 'Next.js']
   }
 ]
 
@@ -174,55 +166,57 @@ export default function PortfolioPage() {
                   exit={{ opacity: 0, scale: 0.95, filter: 'blur(20px)' }}
                   transition={{ duration: 0.6, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
                   className={`${viewMode === 'grid'
-                    ? project.size === 'large' ? 'lg:col-span-8' : 'lg:col-span-4'
+                    ? 'lg:col-span-4'
                     : 'w-full'
                     }`}
                 >
-                  <div className={`group relative bg-white/[0.02] border border-white/5 rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:bg-white/[0.04] p-3 ${viewMode === 'list' ? 'flex items-center gap-8' : ''
-                    }`}>
-                    {/* Project Image Container */}
-                    <div className={`relative overflow-hidden rounded-[2rem] bg-slate-900 ${viewMode === 'grid' ? 'aspect-[16/10]' : 'w-48 aspect-square flex-shrink-0'
+                  <Link href={`/portfolio/${project.id}`} className="block">
+                    <div className={`group relative bg-white/[0.02] border border-white/5 rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:bg-white/[0.04] p-3 ${viewMode === 'list' ? 'flex items-center gap-8' : ''
                       }`}>
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover scale-110 group-hover:scale-125 transition-transform duration-1000 ease-[0.16, 1, 0.3, 1]"
-                      />
-                      {/* Interactive Hover Layer */}
-                      <div className="absolute inset-0 bg-[#0BAFB4]/20 opacity-0 group-hover:opacity-100 transition-all duration-700 backdrop-blur-sm" />
+                      {/* Project Image Container */}
+                      <div className={`relative overflow-hidden rounded-[2rem] bg-slate-900 ${viewMode === 'grid' ? 'aspect-[16/10]' : 'w-48 aspect-square flex-shrink-0'
+                        }`}>
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover scale-110 group-hover:scale-125 transition-transform duration-1000 ease-[0.16, 1, 0.3, 1]"
+                        />
+                        {/* Interactive Hover Layer */}
+                        <div className="absolute inset-0 bg-[#0BAFB4]/20 opacity-0 group-hover:opacity-100 transition-all duration-700 backdrop-blur-sm" />
 
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                        <div className="w-16 h-16 rounded-full bg-white text-[#1F3C64] flex items-center justify-center shadow-2xl scale-0 group-hover:scale-100 transition-transform delay-100">
-                          <ArrowUpLeft size={30} strokeWidth={2.5} />
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                          <div className="w-16 h-16 rounded-full bg-white text-[#1F3C64] flex items-center justify-center shadow-2xl scale-0 group-hover:scale-100 transition-transform delay-100">
+                            <ArrowUpLeft size={30} strokeWidth={2.5} />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Project Information */}
+                      <div className={`flex flex-col justify-between p-6 ${viewMode === 'list' ? 'flex-grow' : ''}`}>
+                        <div>
+                          <div className="flex items-center gap-3 mb-4">
+                            <span className="bg-[#0BAFB4]/10 text-[#0BAFB4] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-[#0BAFB4]/20">
+                              {project.category}
+                            </span>
+                            <div className="h-px flex-grow bg-white/[0.05]" />
+                          </div>
+                          <h3 className="text-2xl md:text-3xl font-black text-[#E7F7F8] tracking-tighter mb-4 group-hover:text-[#0BAFB4] transition-colors duration-500">
+                            {project.title}
+                          </h3>
+                        </div>
+
+                        <div className="flex items-center justify-between mt-4">
+                          <div className="flex gap-2">
+                            {project.tags.map(tag => (
+                              <span key={tag} className="text-[#E7F7F8] text-xs font-semibold">{tag} •</span>
+                            ))}
+                          </div>
+                          <span className="text-[#0BAFB4] group-hover:translate-x-[-8px] transition-transform duration-500 opacity-0 group-hover:opacity-100 font-black text-sm">التفاصيل</span>
                         </div>
                       </div>
                     </div>
-
-                    {/* Project Information */}
-                    <div className={`flex flex-col justify-between p-6 ${viewMode === 'list' ? 'flex-grow' : ''}`}>
-                      <div>
-                        <div className="flex items-center gap-3 mb-4">
-                          <span className="bg-[#0BAFB4]/10 text-[#0BAFB4] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-[#0BAFB4]/20">
-                            {project.category}
-                          </span>
-                          <div className="h-px flex-grow bg-white/[0.05]" />
-                        </div>
-                        <h3 className="text-2xl md:text-3xl font-black text-[#E7F7F8] tracking-tighter mb-4 group-hover:text-[#0BAFB4] transition-colors duration-500">
-                          {project.title}
-                        </h3>
-                      </div>
-
-                      <div className="flex items-center justify-between mt-4">
-                        <div className="flex gap-2">
-                          {project.tags.map(tag => (
-                            <span key={tag} className="text-[#E7F7F8] text-xs font-semibold">{tag} •</span>
-                          ))}
-                        </div>
-                        <span className="text-[#0BAFB4] group-hover:translate-x-[-8px] transition-transform duration-500 opacity-0 group-hover:opacity-100 font-black text-sm">التفاصيل</span>
-                      </div>
-                    </div>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -230,37 +224,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* ── Conversion Section (Premium CTA) ── */}
-      <section className="py-24 lg:py-40 relative">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="relative p-12 lg:p-24 rounded-[3.5rem] bg-[#1F3C64] overflow-hidden border border-white/5 text-center">
-            {/* Visual Background Pattern */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-overlay">
-              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#0BAFB4_1px,transparent_1px)] [background-size:40px_40px]" />
-            </div>
 
-            <div className="relative z-10 flex flex-col items-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h2 className="text-4xl md:text-7xl font-black text-white mb-10 tracking-tighter leading-none max-w-4xl">
-                  هل لديك فكرة <br /> <span className="text-[#0BAFB4]">تنتظر الانطلاق؟</span>
-                </h2>
-                <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                  <Link href="/contact" className="bg-[#0BAFB4] text-white px-12 py-6 rounded-2xl text-xl font-black shadow-2xl hover:scale-105 transition-all duration-500">
-                    ابدأ مشروعك الآن
-                  </Link>
-                  <Link href="/offers" className="border border-white/20 text-white px-10 py-6 rounded-2xl text-xl font-black hover:bg-white/5 transition-all duration-500">
-                    شاهد العروض
-                  </Link>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <Footer />
       <WhatsAppButton />

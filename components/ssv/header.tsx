@@ -8,18 +8,18 @@ import { SSVLogo } from './ssv-logo'
 
 const navLinks = [
   { href: '/', label: 'الرئيسية' },
-  { href: '#about', label: 'من نحن' },
+  { href: '/about', label: 'من نحن' },
   {
     label: 'خدماتنا',
     dropdown: [
-      { href: '/services/strategy', label: 'الاستراتيجية (Strategy)' },
-      { href: '/services/support', label: 'التنفيذ (Support)' },
-      { href: '/services/value', label: 'القياس والتطوير (Value)' },
+      { href: '/services', label: 'الاستراتيجية (Strategy)' },
+      { href: '/services', label: 'التنفيذ (Support)' },
+      { href: '/services', label: 'القياس والتطوير (Value)' },
     ]
   },
-  { href: '#portfolio', label: 'أعمالنا' },
-  { href: '#testimonials', label: 'الآراء' },
-  { href: '#partners', label: 'شركاؤنا' },
+  { href: '/portfolio', label: 'أعمالنا' },
+  { href: '/#testimonials', label: 'الآراء' },
+  { href: '/#partners', label: 'شركاؤنا' },
   { href: '/offers', label: 'العروض' },
   { href: '/contact', label: 'تواصل بنا' },
 ]

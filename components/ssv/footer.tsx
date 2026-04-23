@@ -7,17 +7,17 @@ import { Mail, Phone, MapPin, Twitter, Instagram, Linkedin, Youtube } from 'luci
 import { SSVLogo } from './ssv-logo'
 
 const quickLinks = [
-  { label: 'الرئيسية', href: '#home' },
-  { label: 'من نحن', href: '#about' },
-  { label: 'خدماتنا', href: '#services' },
-  { label: 'أعمالنا', href: '#portfolio' },
+  { label: 'الرئيسية', href: '/' },
+  { label: 'من نحن', href: '/about' },
+  { label: 'خدماتنا', href: '/services' },
+  { label: 'أعمالنا', href: '/portfolio' },
 ]
 
 const serviceLinks = [
-  { label: 'الإنتاج المرئي', href: '#services' },
-  { label: 'موشن جرافيك', href: '#services' },
-  { label: 'التسويق الرقمي', href: '#services' },
-  { label: 'الهوية البصرية', href: '#services' },
+  { label: 'الإنتاج المرئي', href: '/services' },
+  { label: 'موشن جرافيك', href: '/services' },
+  { label: 'التسويق الرقمي', href: '/services' },
+  { label: 'الهوية البصرية', href: '/services' },
 ]
 
 const socialLinks = [
@@ -60,13 +60,13 @@ export function Footer() {
             </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
-                href="#contact"
+                href="/contact"
                 className="px-12 py-6 bg-[#0BAFB4] text-[#1F3C64] text-xl font-black rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-[0_20px_40px_rgba(11,175,180,0.3)]"
               >
                 ابدأ مشروعك الآن
               </Link>
               <Link
-                href="#portfolio"
+                href="/portfolio"
                 className="px-12 py-6 bg-[#E7F7F8]/5 text-[#E7F7F8] text-xl font-black rounded-2xl border border-[#E7F7F8]/10 hover:bg-[#E7F7F8]/10 transition-all"
               >
                 شاهد أعمالنا
