@@ -91,7 +91,7 @@ export function Header() {
                             <div className="flex flex-col gap-2">
                               {link.dropdown.map((item) => (
                                 <Link
-                                  key={item.href}
+                                  key={item.label}
                                   href={item.href}
                                   className="p-3 rounded-xl hover:bg-[#0BAFB4]/10 hover:text-[#0BAFB4] transition-all text-right text-sm"
                                 >
@@ -180,7 +180,7 @@ export function Header() {
                               >
                                 {link.dropdown.map((item) => (
                                   <Link
-                                    key={item.href}
+                                    key={item.label}
                                     href={item.href}
                                     onClick={() => {
                                       setIsMobileMenuOpen(false)
