@@ -146,22 +146,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Culture Intro ── */}
-      <section className="py-24 lg:py-40 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="bg-white/5 p-16 md:p-24 rounded-[4rem] text-center relative overflow-hidden border border-white/5">
-            <div className="relative z-10">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-4 bg-[#0BAFB4] text-white px-12 py-6 rounded-2xl text-xl font-black shadow-2xl hover:scale-105 transition-all"
-              >
-                ابدأ رحلتك معنا
-                <ArrowRight className="w-6 h-6 -rotate-45" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       <Footer />
       <WhatsAppButton />

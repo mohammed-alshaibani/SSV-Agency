@@ -163,19 +163,37 @@ export function Header() {
                     <div key={link.label}>
                       {link.dropdown ? (
                         <div className="flex flex-col gap-2">
-                          <span className="text-lg font-black text-[#0BAFB4] pr-2 mb-2 block">
-                            {link.label}
-                          </span>
-                          {link.dropdown.map((item) => (
-                            <Link
-                              key={item.href}
-                              href={item.href}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="text-base font-medium text-[#E7F7F8]/80 hover:text-[#0BAFB4] transition-colors py-2 pr-6 border-r border-white/5"
-                            >
-                              {item.label}
-                            </Link>
-                          ))}
+                          <button
+                            onClick={() => setIsServicesOpen(!isServicesOpen)}
+                            className="flex justify-between items-center text-lg font-black text-[#0BAFB4] pr-2 mb-2 w-full text-right transition-colors"
+                          >
+                            <span>{link.label}</span>
+                            <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                          </button>
+                          <AnimatePresence>
+                            {isServicesOpen && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden flex flex-col gap-2"
+                              >
+                                {link.dropdown.map((item) => (
+                                  <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    onClick={() => {
+                                      setIsMobileMenuOpen(false)
+                                      setIsServicesOpen(false)
+                                    }}
+                                    className="text-base font-medium text-[#E7F7F8]/80 hover:text-[#0BAFB4] transition-colors py-2 pr-6 border-r border-[#0BAFB4]/30"
+                                  >
+                                    {item.label}
+                                  </Link>
+                                ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                       ) : (
                         <a

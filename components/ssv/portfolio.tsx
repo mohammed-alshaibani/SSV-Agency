@@ -143,9 +143,9 @@ export function Portfolio() {
             <div className="mt-8">
               <Link
                 href="/portfolio"
-                className="inline-block border border-[#0BAFB4] text-[#0BAFB4] px-8 py-3 rounded-full hover:bg-[#0BAFB4]/10 transition-colors font-semibold pointer-events-auto"
+                className="inline-block border-2 border-[#E7F7F8] text-[#E7F7F8] px-10 py-3 rounded-full hover:bg-[#E7F7F8] hover:text-[#1F3C64] transition-all duration-500 font-black pointer-events-auto"
               >
-                View Details
+                عرض التفاصيل
               </Link>
             </div>
           </div>

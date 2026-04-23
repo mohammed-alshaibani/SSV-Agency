@@ -49,8 +49,8 @@ const servicePillars = [
 export function Services() {
   const wrapperRef = useRef<HTMLElement>(null)
 
-  // Height = Initial Stage + 3 Pillars = 4 Stages
-  const dynamicHeight = `${(servicePillars.length + 1) * 110}vh`;
+  // Height = Initial Stage + 3 Pillars = 4 Stages (Reduced multiplier from 80 to 50 for max speed)
+  const dynamicHeight = `${(servicePillars.length + 1) * 50}vh`;
 
   useGSAP(() => {
     if (!wrapperRef.current) return;
@@ -74,11 +74,10 @@ export function Services() {
     const premiumEase = "expo.out"; // Mimics [0.16, 1, 0.3, 1]
 
     // 1st Transition: Initial Logo -> Stage 1
-    tl.to({}, { duration: 1.5 }); // initial scroll pause
     tl.to(initialStage, {
       opacity: 0,
       y: -150,
-      duration: 1.5,
+      duration: 0.7,
       ease: "power4.inOut"
     }, "transition-init");
 
@@ -86,7 +85,7 @@ export function Services() {
       opacity: 1,
       scale: 1,
       filter: 'blur(0px)',
-      duration: 1.5,
+      duration: 0.7,
       ease: premiumEase
     }, "transition-init");
 
@@ -109,8 +108,6 @@ export function Services() {
         ease: "none"
       }, `stage-${i}`);
 
-      tl.to({}, { duration: 2 }); // pause on current stage
-
       if (i < stages.length - 1) {
         const nextStage = stages[i + 1];
 
@@ -118,7 +115,7 @@ export function Services() {
           opacity: 0,
           scale: 1.1,
           filter: 'blur(20px)',
-          duration: 1.8,
+          duration: 0.8,
           ease: "power2.inOut"
         }, `transition-${i}`);
 
@@ -126,7 +123,7 @@ export function Services() {
           opacity: 1,
           scale: 1,
           filter: 'blur(0px)',
-          duration: 1.8,
+          duration: 0.8,
           ease: premiumEase
         }, `transition-${i}`);
       }
@@ -239,9 +236,9 @@ export function Services() {
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-50 pointer-events-auto">
           <Link
             href="/services"
-            className="inline-block border border-[#0BAFB4] text-[#0BAFB4] px-8 py-3 rounded-full hover:bg-[#0BAFB4]/10 transition-colors font-semibold backdrop-blur-sm"
+            className="inline-block border-2 border-[#E7F7F8] text-[#E7F7F8] px-10 py-3 rounded-full hover:bg-[#E7F7F8] hover:text-[#1F3C64] transition-all duration-500 font-black"
           >
-            View Details
+            عرض التفاصيل
           </Link>
         </div>
       </div>

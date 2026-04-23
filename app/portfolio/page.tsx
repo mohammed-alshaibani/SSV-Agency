@@ -6,6 +6,7 @@ import { WhatsAppButton } from '@/components/ssv/whatsapp-button'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { ArrowUpLeft, LayoutGrid, List } from 'lucide-react'
 
 // ── Portfolio Data ──
@@ -118,18 +119,17 @@ export default function PortfolioPage() {
       {/* ── Filter & View Toggle Section ── */}
       <section className="sticky top-20 z-40 py-6 bg-[#1F3C64]/80 backdrop-blur-xl border-y border-white/5 shadow-xl shadow-black/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          
+
           {/* Navigation Categories */}
           <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 md:pb-0 w-full md:w-auto">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2.5 text-sm font-bold rounded-full transition-all duration-500 whitespace-nowrap ${
-                  activeCategory === category
-                    ? 'bg-[#0BAFB4] text-white shadow-[0_10px_20px_rgba(11,175,180,0.3)] scale-105'
-                    : 'text-[#E7F7F8] hover:text-white hover:bg-white/5'
-                }`}
+                className={`px-6 py-2.5 text-sm font-bold rounded-full transition-all duration-500 whitespace-nowrap ${activeCategory === category
+                  ? 'bg-[#0BAFB4] text-white shadow-[0_10px_20px_rgba(11,175,180,0.3)] scale-105'
+                  : 'text-[#E7F7F8] hover:text-white hover:bg-white/5'
+                  }`}
               >
                 {category}
               </button>
@@ -138,13 +138,13 @@ export default function PortfolioPage() {
 
           {/* View Toggles */}
           <div className="hidden md:flex items-center gap-4 bg-white/5 p-1.5 rounded-2xl border border-white/5">
-            <button 
+            <button
               onClick={() => setViewMode('grid')}
               className={`p-2.5 rounded-xl transition-all duration-300 ${viewMode === 'grid' ? 'bg-[#0BAFB4] text-white' : 'text-[#E7F7F8] hover:text-[#E7F7F8]'}`}
             >
               <LayoutGrid size={20} strokeWidth={2.5} />
             </button>
-            <button 
+            <button
               onClick={() => setViewMode('list')}
               className={`p-2.5 rounded-xl transition-all duration-300 ${viewMode === 'list' ? 'bg-[#0BAFB4] text-white' : 'text-[#E7F7F8] hover:text-[#E7F7F8]'}`}
             >
@@ -157,9 +157,9 @@ export default function PortfolioPage() {
       {/* ── Portfolio Gallery Section ── */}
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             layout
-            className={viewMode === 'grid' 
+            className={viewMode === 'grid'
               ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 items-start"
               : "flex flex-col gap-8"
             }
@@ -173,19 +173,16 @@ export default function PortfolioPage() {
                   animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                   exit={{ opacity: 0, scale: 0.95, filter: 'blur(20px)' }}
                   transition={{ duration: 0.6, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                  className={`${
-                    viewMode === 'grid'
-                      ? project.size === 'large' ? 'lg:col-span-8' : 'lg:col-span-4'
-                      : 'w-full'
-                  }`}
+                  className={`${viewMode === 'grid'
+                    ? project.size === 'large' ? 'lg:col-span-8' : 'lg:col-span-4'
+                    : 'w-full'
+                    }`}
                 >
-                  <div className={`group relative bg-white/[0.02] border border-white/5 rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:bg-white/[0.04] p-3 ${
-                    viewMode === 'list' ? 'flex items-center gap-8' : ''
-                  }`}>
-                    {/* Project Image Container */}
-                    <div className={`relative overflow-hidden rounded-[2rem] bg-slate-900 ${
-                      viewMode === 'grid' ? 'aspect-[16/10]' : 'w-48 aspect-square flex-shrink-0'
+                  <div className={`group relative bg-white/[0.02] border border-white/5 rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:bg-white/[0.04] p-3 ${viewMode === 'list' ? 'flex items-center gap-8' : ''
                     }`}>
+                    {/* Project Image Container */}
+                    <div className={`relative overflow-hidden rounded-[2rem] bg-slate-900 ${viewMode === 'grid' ? 'aspect-[16/10]' : 'w-48 aspect-square flex-shrink-0'
+                      }`}>
                       <Image
                         src={project.image}
                         alt={project.title}
@@ -194,7 +191,7 @@ export default function PortfolioPage() {
                       />
                       {/* Interactive Hover Layer */}
                       <div className="absolute inset-0 bg-[#0BAFB4]/20 opacity-0 group-hover:opacity-100 transition-all duration-700 backdrop-blur-sm" />
-                      
+
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
                         <div className="w-16 h-16 rounded-full bg-white text-[#1F3C64] flex items-center justify-center shadow-2xl scale-0 group-hover:scale-100 transition-transform delay-100">
                           <ArrowUpLeft size={30} strokeWidth={2.5} />
@@ -215,7 +212,7 @@ export default function PortfolioPage() {
                           {project.title}
                         </h3>
                       </div>
-                      
+
                       <div className="flex items-center justify-between mt-4">
                         <div className="flex gap-2">
                           {project.tags.map(tag => (
@@ -252,12 +249,12 @@ export default function PortfolioPage() {
                   هل لديك فكرة <br /> <span className="text-[#0BAFB4]">تنتظر الانطلاق؟</span>
                 </h2>
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                    <button className="bg-[#0BAFB4] text-white px-12 py-6 rounded-2xl text-xl font-black shadow-2xl hover:scale-105 transition-all duration-500">
-                        ابدأ مشروعك الآن
-                    </button>
-                    <button className="border border-white/20 text-white px-10 py-6 rounded-2xl text-xl font-black hover:bg-white/5 transition-all duration-500">
-                        شاهد العروض
-                    </button>
+                  <Link href="/contact" className="bg-[#0BAFB4] text-white px-12 py-6 rounded-2xl text-xl font-black shadow-2xl hover:scale-105 transition-all duration-500">
+                    ابدأ مشروعك الآن
+                  </Link>
+                  <Link href="/offers" className="border border-white/20 text-white px-10 py-6 rounded-2xl text-xl font-black hover:bg-white/5 transition-all duration-500">
+                    شاهد العروض
+                  </Link>
                 </div>
               </motion.div>
             </div>
